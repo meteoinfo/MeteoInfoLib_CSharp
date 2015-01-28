@@ -1,0 +1,837 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BE06225D-DAE2-4C6A-8628-F60B14FE68C3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MeteoInfoC</RootNamespace>
+    <AssemblyName>MeteoInfoC</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>MeteoInfoC.xml</DocumentationFile>
+    <PlatformTarget>x86</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>MeteoInfoC.xml</DocumentationFile>
+    <PlatformTarget>x86</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DocumentationFile>MeteoInfoC.xml</DocumentationFile>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\MeteoInfoC.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DocumentationFile>MeteoInfoC.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\MeteoInfoC.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="HDF5DotNet, Version=1.0.2988.20613, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\User\Downloads\hdf5DotNet18\hdf5DotNet\HDF5DotNet\Release\HDF5DotNet.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Core, Version=0.44.0.5, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\User\Downloads\ikvm-0.44.0.5\bin\IKVM.OpenJDK.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="j2k, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\j2k.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="wContour, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\wContour\bin\Release\wContour.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Analysis\Clustering.cs" />
+    <Compile Include="Analysis\BaseStatistics.cs" />
+    <Compile Include="Data\Bytes2Number.cs" />
+    <Compile Include="Data\MapData\frmAddField.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\MapData\frmAddField.Designer.cs">
+      <DependentUpon>frmAddField.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MapData\frmAttriData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\MapData\frmAttriData.Designer.cs">
+      <DependentUpon>frmAttriData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MapData\frmInputBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\MapData\frmInputBox.Designer.cs">
+      <DependentUpon>frmInputBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MeteoData\AWXData\AWXDataInfo.cs" />
+    <Compile Include="Data\MeteoData\DataInfo.cs" />
+    <Compile Include="Data\MeteoData\Dimension.cs" />
+    <Compile Include="Data\MeteoData\DimensionType.cs" />
+    <Compile Include="Data\MeteoData\GeoTiff\FieldType.cs" />
+    <Compile Include="Data\MeteoData\GeoTiff\GeoHeader.cs" />
+    <Compile Include="Data\MeteoData\GeoTiff\GeoTiffDataInfo.cs" />
+    <Compile Include="Data\MeteoData\GeoTiff\IDFEntry.cs" />
+    <Compile Include="Data\MeteoData\GeoTiff\KeyEntry.cs" />
+    <Compile Include="Data\MeteoData\GeoTiff\Tag.cs" />
+    <Compile Include="Data\MeteoData\GRIB\GRIB2\GRIB2Tables.cs" />
+    <Compile Include="Data\MeteoData\IGridDataInfo.cs" />
+    <Compile Include="Data\MeteoData\HDF\HDF5DataInfo.cs" />
+    <Compile Include="Data\MeteoData\HDF\MetaGroup.cs" />
+    <Compile Include="Data\MeteoData\HDF\MetaObject.cs" />
+    <Compile Include="Data\MeteoData\HRIT\HRITDataInfo.cs" />
+    <Compile Include="Data\MeteoData\MathParser\ExpressionBase.cs" />
+    <Compile Include="Data\MeteoData\MathParser\FunctionExpression.cs" />
+    <Compile Include="Data\MeteoData\MathParser\IExpression.cs" />
+    <Compile Include="Data\MeteoData\MathParser\MathEvaluate.cs" />
+    <Compile Include="Data\MeteoData\MathParser\MathOperators.cs" />
+    <Compile Include="Data\MeteoData\MathParser\MathParser.cs" />
+    <Compile Include="Data\MeteoData\GRIB\GRIB2\GRIB2JpegDecoder.cs" />
+    <Compile Include="Data\MeteoData\GRIB\GRIB1\GRIB1MessageIndex.cs" />
+    <Compile Include="Data\MeteoData\GRIB\GRIB2\Category.cs" />
+    <Compile Include="Data\MeteoData\GRIB\GRIB2\Discipline.cs" />
+    <Compile Include="Data\MeteoData\GRIB\GRIB2\GRIB2BitMapSection.cs" />
+    <Compile Include="Data\MeteoData\GRIB\GRIB2\GRIB2DataInfo.cs" />
+    <Compile Include="Data\MeteoData\GRIB\GRIB2\GRIB2DataRepresentationSection.cs" />
+    <Compile Include="Data\MeteoData\GRIB\GRIB2\GRIB2DataSection.cs" />
+    <Compile Include="Data\MeteoData\GRIB\GRIB2\GRIB2GridDefinitionSection.cs" />
+    <Compile Include="Data\MeteoData\GRIB\GRIB2\GRIB2IdentificationSection.cs" />
+    <Compile Include="Data\MeteoData\GRIB\GRIB2\GRIB2IndicatorSection.cs" />
+    <Compile Include="Data\MeteoData\GRIB\GRIB2\GRIB2LocalUseSection.cs" />
+    <Compile Include="Data\MeteoData\GRIB\GRIB2\GRIB2Message.cs" />
+    <Compile Include="Data\MeteoData\GRIB\GRIB2\GRIB2MessageIndex.cs" />
+    <Compile Include="Data\MeteoData\GRIB\GRIB2\GRIB2ParameterTable.cs" />
+    <Compile Include="Data\MeteoData\GRIB\GRIB2\GRIB2ProductDefinitionSection.cs" />
+    <Compile Include="Data\MeteoData\GRIB\GRIBParameterTable.cs" />
+    <Compile Include="Data\MeteoData\GRIB\GRIB1\GRIB1BinaryDataSection.cs" />
+    <Compile Include="Data\MeteoData\GRIB\GRIB1\GRIB1BitMapSection.cs" />
+    <Compile Include="Data\MeteoData\GRIB\GRIB1\GRIB1GridDefineSection.cs" />
+    <Compile Include="Data\MeteoData\GRIB\GRIB1\GRIB1IndicatorSection.cs" />
+    <Compile Include="Data\MeteoData\GRIB\GRIB1\GRIB1ProductDefineSection.cs" />
+    <Compile Include="Data\MeteoData\GRIB\GRIB1\GRIB1Message.cs" />
+    <Compile Include="Data\MeteoData\GRIB\GRIB1\GRIB1Tables.cs" />
+    <Compile Include="Data\MeteoData\GRIB\GRIB1\GRIB1DataInfo.cs" />
+    <Compile Include="Data\MeteoData\GRIB\GRIBData.cs" />
+    <Compile Include="Data\MeteoData\GRIB\Parameter.cs" />
+    <Compile Include="Data\MeteoData\MathParser\NumberExpression.cs" />
+    <Compile Include="Data\MeteoData\MathParser\OperatorExpression.cs" />
+    <Compile Include="Data\MeteoData\MathParser\ValueType.cs" />
+    <Compile Include="Data\MeteoData\MICAPS\MICAPS13DataInfo.cs" />
+    <Compile Include="Data\MeteoData\MICAPS\MICAPS2DataInfo.cs" />
+    <Compile Include="Data\MeteoData\MICAPS\MICAPS3DataInfo.cs" />
+    <Compile Include="Data\MeteoData\MICAPS\MICAPS5DataInfo.cs" />
+    <Compile Include="Data\MeteoData\MICAPS\MICAPS7DataInfo.cs" />
+    <Compile Include="Data\MeteoData\MICAPS\MICAPSDataInfo.cs" />
+    <Compile Include="Data\MeteoData\NetCDFData\Conventions.cs" />
+    <Compile Include="Data\MeteoData\MathParser\ParseException.cs" />
+    <Compile Include="Data\MeteoData\IStationDataInfo.cs" />
+    <Compile Include="Data\MeteoData\SYNOP\SYNOPDataInfo.cs" />
+    <Compile Include="Data\MeteoData\ITrajDataInfo.cs" />
+    <Compile Include="Data\MeteoData\Variable.cs" />
+    <Compile Include="Data\StationData.cs" />
+    <Compile Include="Data\StationInfoData.cs" />
+    <Compile Include="Data\StationModel.cs" />
+    <Compile Include="Data\StationModelData.cs" />
+    <Compile Include="Drawing\MarkerType.cs" />
+    <Compile Include="Geoprocess\BorderPoint.cs" />
+    <Compile Include="Geoprocess\ClipLine.cs" />
+    <Compile Include="Geoprocess\GeoComputation.cs" />
+    <Compile Include="Geoprocess\SpatialQueryTypes.cs" />
+    <Compile Include="Geoprocess\Spline.cs" />
+    <Compile Include="Global\Colors\AdobeColors.cs" />
+    <Compile Include="Global\Colors\ctrl2DColorBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Global\Colors\ctrlVerticalColorSlider.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Global\Colors\frmColorPicker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Global\CustomProperty.cs" />
+    <Compile Include="Global\DataConvert.cs" />
+    <Compile Include="Global\Direction.cs" />
+    <Compile Include="Global\frmMeasurement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Global\frmMeasurement.designer.cs">
+      <DependentUpon>frmMeasurement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Global\Images\ImageUtil.cs" />
+    <Compile Include="Global\OctreeQuantizer.cs" />
+    <Compile Include="Global\PaletteQuantizer.cs" />
+    <Compile Include="Global\Quantizer.cs" />
+    <Compile Include="Global\ColorUtils.cs" />
+    <Compile Include="Global\Template.cs" />
+    <Compile Include="Global\ToolStripSplitButtonCheckable.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layer\ChartSet.cs" />
+    <Compile Include="Layer\frmLabelSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layer\frmLabelSet.designer.cs">
+      <DependentUpon>frmLabelSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layer\VisibleScale.cs" />
+    <Compile Include="Legend\ChartTypes.cs" />
+    <Compile Include="Layer\frmLayerProperty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layer\frmLayerProperty.Designer.cs">
+      <DependentUpon>frmLayerProperty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layer\MapLayer.cs" />
+    <Compile Include="Layer\LayerTypes.cs" />
+    <Compile Include="Layer\RasterLayer.cs" />
+    <Compile Include="Layer\RasterLayerSet.cs" />
+    <Compile Include="Layout\LayoutElement.cs" />
+    <Compile Include="Layout\LayoutGraphic.cs" />
+    <Compile Include="Layout\LayoutIllustrationMap.cs" />
+    <Compile Include="Layout\LayoutLegend.cs" />
+    <Compile Include="Layout\LayoutMap.cs" />
+    <Compile Include="Layout\LayoutNorthArrow.cs" />
+    <Compile Include="Layout\LayoutScaleBar.cs" />
+    <Compile Include="Layout\MapLayout.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Legend\BreakTypes.cs" />
+    <Compile Include="Legend\ChartBreak.cs" />
+    <Compile Include="Legend\ColorBreak.cs" />
+    <Compile Include="Legend\frmColorSymbolSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Legend\frmColorSymbolSet.Designer.cs">
+      <DependentUpon>frmColorSymbolSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Legend\frmLabelSymbolSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Legend\frmLabelSymbolSet.Designer.cs">
+      <DependentUpon>frmLabelSymbolSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Legend\frmPointSymbolSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Legend\frmPointSymbolSet.Designer.cs">
+      <DependentUpon>frmPointSymbolSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Legend\frmPolygonSymbolSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Legend\frmPolygonSymbolSet.Designer.cs">
+      <DependentUpon>frmPolygonSymbolSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Legend\frmPolylineSymbolSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Legend\frmPolylineSymbolSet.Designer.cs">
+      <DependentUpon>frmPolylineSymbolSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Legend\ItemNode.cs" />
+    <Compile Include="Legend\LabelBreak.cs" />
+    <Compile Include="Legend\LayersLegend.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Legend\BarGraphBreak.cs" />
+    <Compile Include="Legend\LegendSchemeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Legend\LegendSchemeControl.Designer.cs">
+      <DependentUpon>LegendSchemeControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Legend\LegendView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Legend\LegendView.Designer.cs">
+      <DependentUpon>LegendView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Legend\LineStyles.cs" />
+    <Compile Include="Legend\NodeTypes.cs" />
+    <Compile Include="Legend\SymbolControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Legend\SymbolControl.Designer.cs">
+      <DependentUpon>SymbolControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Legend\MapFrame.cs" />
+    <Compile Include="Legend\VectorBreak.cs" />
+    <Compile Include="Map\frmIdentifer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Map\frmIdentifer.designer.cs">
+      <DependentUpon>frmIdentifer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Map\frmIdentiferGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Map\frmIdentiferGrid.designer.cs">
+      <DependentUpon>frmIdentiferGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Map\GridLabel.cs" />
+    <Compile Include="Map\IMapView.cs" />
+    <Compile Include="MIApp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\GridData.cs" />
+    <Compile Include="Data\DataMath.cs" />
+    <Compile Include="Data\MapData\AttributeTable.cs" />
+    <Compile Include="Data\MapData\AttributeTableOld.cs" />
+    <Compile Include="Data\MapData\Field.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Data\MapData\FieldDataTypes.cs" />
+    <Compile Include="Data\MapData\MapDataManage.cs" />
+    <Compile Include="Data\MapData\NumberConverter.cs" />
+    <Compile Include="Data\MapData\NumberException.cs" />
+    <Compile Include="Data\MapData\ShapeFile.cs" />
+    <Compile Include="Data\MapData\ShapeFileManage.cs" />
+    <Compile Include="Data\MapData\ShapeFileType.cs" />
+    <Compile Include="Data\MapData\Shape_Point.cs" />
+    <Compile Include="Data\MapData\Shape_Polygon.cs" />
+    <Compile Include="Data\MapData\Shape_Polyline.cs" />
+    <Compile Include="Data\MeteoData\ARLData\ARLDataInfo.cs" />
+    <Compile Include="Data\MeteoData\ARLData\ARLMeteoData.cs" />
+    <Compile Include="Data\MeteoData\ARLData\ARLVAR.cs" />
+    <Compile Include="Data\MeteoData\ARLData\DataHead.cs" />
+    <Compile Include="Data\MeteoData\ARLData\DataLabel.cs" />
+    <Compile Include="Data\MeteoData\ASCIIData\ASCIIGRIDDataInfo.cs" />
+    <Compile Include="Data\MeteoData\ASCIIData\ISHDataInfo.cs" />
+    <Compile Include="Data\MeteoData\ASCIIData\LonLatStationDataInfo.cs" />
+    <Compile Include="Data\MeteoData\ASCIIData\SurferGridDataInfo.cs" />
+    <Compile Include="Data\MeteoData\DrawMeteoData.cs" />
+    <Compile Include="Data\MeteoData\GrADSData\Options.cs" />
+    <Compile Include="Data\MeteoData\GrADSData\PDEFS.cs" />
+    <Compile Include="Data\MeteoData\GrADSData\PDEF_LCC.cs" />
+    <Compile Include="Data\MeteoData\HYSPLITData\HYSPLITParticleInfo.cs" />
+    <Compile Include="Data\MeteoData\HYSPLITData\HYSPLITTrajectoryInfo.cs" />
+    <Compile Include="Data\MeteoData\HYSPLITData\TrajectoryInfo.cs" />
+    <Compile Include="Data\MeteoData\METAR\METARDataInfo.cs" />
+    <Compile Include="Data\MeteoData\MICAPS\MICAPS11DataInfo.cs" />
+    <Compile Include="Data\MeteoData\NetCDFData\AttStruct.cs" />
+    <Compile Include="Data\MeteoData\NetCDFData\DimStruct.cs" />
+    <Compile Include="Data\MeteoData\HYSPLITData\HYSPLITConcDataInfo.cs" />
+    <Compile Include="Data\MeteoData\HYSPLITData\HYSPLITData.cs" />
+    <Compile Include="Data\MeteoData\MICAPS\MICAPS1DataInfo.cs" />
+    <Compile Include="Data\MeteoData\MICAPS\MICAPS4DataInfo.cs" />
+    <Compile Include="Data\MeteoData\MICAPS\MICAPSData.cs" />
+    <Compile Include="Data\MeteoData\NetCDFData\NetCDF4.cs" />
+    <Compile Include="Data\MeteoData\NetCDFData\NetCDFData.cs" />
+    <Compile Include="Data\MeteoData\NetCDFData\NetCDFDataInfo.cs" />
+    <Compile Include="Data\MeteoData\Setting\DrawType2D.cs" />
+    <Compile Include="Data\MeteoData\GrADSData\GrADSDataInfo.cs" />
+    <Compile Include="Data\MeteoData\Setting\GridDataSetting.cs" />
+    <Compile Include="Data\MeteoData\Setting\InterpolationMethods.cs" />
+    <Compile Include="Data\MeteoData\Setting\InterpolationSetting.cs" />
+    <Compile Include="Data\MeteoData\Setting\MeteoDataDrawSet.cs" />
+    <Compile Include="Data\MeteoData\MeteoDataInfo.cs" />
+    <Compile Include="Data\MeteoData\Setting\MeteoDataType.cs" />
+    <Compile Include="Data\MeteoData\Setting\MeteoUVSet.cs" />
+    <Compile Include="Data\MeteoData\Setting\PlotDimension.cs" />
+    <Compile Include="Data\MeteoData\GrADSData\STData.cs" />
+    <Compile Include="Data\MeteoData\GrADSData\STDataHead.cs" />
+    <Compile Include="Data\MeteoData\GrADSData\STLevData.cs" />
+    <Compile Include="Data\MeteoData\GrADSData\TDEFS.cs" />
+    <Compile Include="Data\MeteoData\GrADSData\VAR.cs" />
+    <Compile Include="Data\MeteoData\GrADSData\VARDEFS.cs" />
+    <Compile Include="Data\MeteoData\GrADSData\YDEFS.cs" />
+    <Compile Include="Data\MeteoData\GrADSData\XDEFS.cs" />
+    <Compile Include="Data\MeteoData\GrADSData\ZDEFS.cs" />
+    <Compile Include="Data\MeteoData\NetCDFData\TimeUnit.cs" />
+    <Compile Include="Data\MeteoData\NetCDFData\VarStruct.cs" />
+    <Compile Include="Global\GlobalUtil.cs" />
+    <Compile Include="Layout\frmPageSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layout\frmPageSetup.Designer.cs">
+      <DependentUpon>frmPageSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\LayoutEnums.cs" />
+    <Compile Include="Plugin\IApplication.cs" />
+    <Compile Include="Plugin\IPlugin.cs" />
+    <Compile Include="Plugin\PluginBase.cs" />
+    <Compile Include="Projection\ProjectionManage.cs" />
+    <Compile Include="Projection\ProjectionNames.cs" />
+    <Compile Include="Shape\CircleShape.cs" />
+    <Compile Include="Shape\ColorSet.cs" />
+    <Compile Include="Shape\CurveLineShape.cs" />
+    <Compile Include="Shape\CurvePolygonShape.cs" />
+    <Compile Include="Shape\EllipseShape.cs" />
+    <Compile Include="Shape\GraphicCollection.cs" />
+    <Compile Include="Shape\Line.cs" />
+    <Compile Include="Shape\PointM.cs" />
+    <Compile Include="Shape\PointMShape.cs" />
+    <Compile Include="Shape\PointZ.cs" />
+    <Compile Include="Shape\Polygon.cs" />
+    <Compile Include="Shape\PolygonMShape.cs" />
+    <Compile Include="Shape\PolyLine.cs" />
+    <Compile Include="Shape\PolylineMShape.cs" />
+    <Compile Include="Shape\RectangleShape.cs" />
+    <Compile Include="Shape\Shape.cs" />
+    <Compile Include="Shape\PointShape.cs" />
+    <Compile Include="Shape\Graphic.cs" />
+    <Compile Include="Shape\PointZShape.cs" />
+    <Compile Include="Shape\PolylineZShape.cs" />
+    <Compile Include="Shape\WindArraw.cs" />
+    <Compile Include="Shape\CloudCoverage.cs" />
+    <Compile Include="Drawing\ContourDraw.cs" />
+    <Compile Include="Drawing\Draw.cs" />
+    <Compile Include="Drawing\PointStyle.cs" />
+    <Compile Include="Shape\StationModelShape.cs" />
+    <Compile Include="Shape\WeatherSymbol.cs" />
+    <Compile Include="Shape\WindBarb.cs" />
+    <Compile Include="Shape\WindSpeedLine.cs" />
+    <Compile Include="Global\ASCIItoBin.cs" />
+    <Compile Include="Global\Extent.cs" />
+    <Compile Include="Global\MIMath.cs" />
+    <Compile Include="Global\PointD.cs" />
+    <Compile Include="Legend\AlignType.cs" />
+    <Compile Include="Layer\LabelSet.cs" />
+    <Compile Include="Layer\ImageLayer.cs" />
+    <Compile Include="Layer\LayerCollection.cs" />
+    <Compile Include="Layer\ImageLayerSet.cs" />
+    <Compile Include="Layer\LayerDrawType.cs" />
+    <Compile Include="Layer\VectorLayer.cs" />
+    <Compile Include="Layer\VectorLayerSet.cs" />
+    <Compile Include="Layer\WorldFilePara.cs" />
+    <Compile Include="Legend\frmLegendBreaks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Legend\frmLegendBreaks.designer.cs">
+      <DependentUpon>frmLegendBreaks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Legend\frmLegendSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Legend\frmLegendSet.designer.cs">
+      <DependentUpon>frmLegendSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Global\frmProperty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Global\frmProperty.Designer.cs">
+      <DependentUpon>frmProperty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Legend\GroupNode.cs" />
+    <Compile Include="Legend\LayerNode.cs" />
+    <Compile Include="Legend\LegendManage.cs" />
+    <Compile Include="Legend\LegendNode.cs" />
+    <Compile Include="Legend\LegendScheme.cs" />
+    <Compile Include="Legend\LegendType.cs" />
+    <Compile Include="Legend\PointBreak.cs" />
+    <Compile Include="Legend\PolygonBreak.cs" />
+    <Compile Include="Legend\PolylineBreak.cs" />
+    <Compile Include="Legend\ScrollingControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\GridLine.cs">
+    </Compile>
+    <Compile Include="Map\MapExtentSet.cs" />
+    <Compile Include="Map\MapProperty.cs" />
+    <Compile Include="Map\MaskOut.cs" />
+    <Compile Include="Map\MouseTools.cs" />
+    <Compile Include="Map\ProjectionSet.cs" />
+    <Compile Include="Map\MapView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Map\XYScreenSet.cs" />
+    <Compile Include="Projection\AngularUnit.cs" />
+    <Compile Include="Projection\CoordinateSystemCategory.cs" />
+    <Compile Include="Projection\Datum.cs" />
+    <Compile Include="Projection\DatumTypes.cs" />
+    <Compile Include="Projection\GeocentricGeodetic.cs" />
+    <Compile Include="Projection\GeographicCategories\Africa.cs" />
+    <Compile Include="Projection\GeographicCategories\Antarctica.cs" />
+    <Compile Include="Projection\GeographicCategories\Asia.cs" />
+    <Compile Include="Projection\GeographicCategories\Australia.cs" />
+    <Compile Include="Projection\GeographicCategories\CountySystems.cs" />
+    <Compile Include="Projection\GeographicCategories\Europe.cs" />
+    <Compile Include="Projection\GeographicCategories\NorthAmerica.cs" />
+    <Compile Include="Projection\GeographicCategories\Oceans.cs" />
+    <Compile Include="Projection\GeographicCategories\SolarSystem.cs" />
+    <Compile Include="Projection\GeographicCategories\SouthAmerica.cs" />
+    <Compile Include="Projection\GeographicCategories\SpheroidBased.cs" />
+    <Compile Include="Projection\GeographicCategories\World.cs" />
+    <Compile Include="Projection\GeographicInfo.cs" />
+    <Compile Include="Projection\GeographicSystems.cs" />
+    <Compile Include="Projection\GridShift.cs" />
+    <Compile Include="Projection\IEsriString.cs" />
+    <Compile Include="Projection\IProjectionCategory.cs" />
+    <Compile Include="Projection\IReproject.cs" />
+    <Compile Include="Projection\KnownCoordinateSystems.cs" />
+    <Compile Include="Projection\LinearUnit.cs" />
+    <Compile Include="Projection\Meridian.cs" />
+    <Compile Include="Projection\MeridionalDistance.cs" />
+    <Compile Include="Projection\Nad\NadTable.cs" />
+    <Compile Include="Projection\Nad\NadTables.cs" />
+    <Compile Include="Projection\Nad\PhiLam.cs" />
+    <Compile Include="Projection\Proj4Datums.cs" />
+    <Compile Include="Projection\Proj4Ellipsoids.cs" />
+    <Compile Include="Projection\Proj4Meridians.cs" />
+    <Compile Include="Projection\ProjectedCategories\Africa.cs" />
+    <Compile Include="Projection\ProjectedCategories\Asia.cs" />
+    <Compile Include="Projection\ProjectedCategories\Europe.cs" />
+    <Compile Include="Projection\ProjectedCategories\GaussKrugerBeijing1954.cs" />
+    <Compile Include="Projection\ProjectedCategories\GaussKrugerOther.cs" />
+    <Compile Include="Projection\ProjectedCategories\GaussKrugerPulkovo1942.cs" />
+    <Compile Include="Projection\ProjectedCategories\GaussKrugerPulkovo1995.cs" />
+    <Compile Include="Projection\ProjectedCategories\KrugerZian1980.cs" />
+    <Compile Include="Projection\ProjectedCategories\Minnesota.cs" />
+    <Compile Include="Projection\ProjectedCategories\Nad1983IntlFeet.cs" />
+    <Compile Include="Projection\ProjectedCategories\NationalGrids.cs" />
+    <Compile Include="Projection\ProjectedCategories\NationalGridsAustralia.cs" />
+    <Compile Include="Projection\ProjectedCategories\NationalGridsCanada.cs" />
+    <Compile Include="Projection\ProjectedCategories\NationalGridsIndia.cs" />
+    <Compile Include="Projection\ProjectedCategories\NationalGridsJapan.cs" />
+    <Compile Include="Projection\ProjectedCategories\NationalGridsNewZealand.cs" />
+    <Compile Include="Projection\ProjectedCategories\NationalGridsNorway.cs" />
+    <Compile Include="Projection\ProjectedCategories\NationalGridsSweden.cs" />
+    <Compile Include="Projection\ProjectedCategories\NorthAmerica.cs" />
+    <Compile Include="Projection\ProjectedCategories\Polar.cs" />
+    <Compile Include="Projection\ProjectedCategories\SouthAmerica.cs" />
+    <Compile Include="Projection\ProjectedCategories\SpheroidBased.cs" />
+    <Compile Include="Projection\ProjectedCategories\StatePlaneNad1927.cs" />
+    <Compile Include="Projection\ProjectedCategories\StatePlaneNad1983.cs" />
+    <Compile Include="Projection\ProjectedCategories\StatePlaneNad1983Feet.cs" />
+    <Compile Include="Projection\ProjectedCategories\StatePlaneNad1983Harn.cs" />
+    <Compile Include="Projection\ProjectedCategories\StatePlaneNad1983HarnFeet.cs" />
+    <Compile Include="Projection\ProjectedCategories\StatePlaneOther.cs" />
+    <Compile Include="Projection\ProjectedCategories\StateSystems.cs" />
+    <Compile Include="Projection\ProjectedCategories\TransverseMercator.cs" />
+    <Compile Include="Projection\ProjectedCategories\UtmNad1927.cs" />
+    <Compile Include="Projection\ProjectedCategories\UtmNad1983.cs" />
+    <Compile Include="Projection\ProjectedCategories\UtmOther.cs" />
+    <Compile Include="Projection\ProjectedCategories\UtmWgs1972.cs" />
+    <Compile Include="Projection\ProjectedCategories\UtmWgs1984.cs" />
+    <Compile Include="Projection\ProjectedCategories\Wisconsin.cs" />
+    <Compile Include="Projection\ProjectedCategories\World.cs" />
+    <Compile Include="Projection\ProjectedCategories\WorldSpheroid.cs" />
+    <Compile Include="Projection\ProjectedSystems.cs" />
+    <Compile Include="Projection\ProjectionException.cs" />
+    <Compile Include="Projection\ProjectionInfo.cs" />
+    <Compile Include="Projection\ProjectionMessages.Designer.cs" />
+    <Compile Include="Projection\Reproject.cs" />
+    <Compile Include="Projection\Spheroid.cs" />
+    <Compile Include="Projection\Transforms\Aitoff.cs" />
+    <Compile Include="Projection\Transforms\AlbersEqualArea.cs" />
+    <Compile Include="Projection\Transforms\AnalyticModes.cs" />
+    <Compile Include="Projection\Transforms\AzimuthalEquidistant.cs" />
+    <Compile Include="Projection\Transforms\BipolarObliqueConformalConic.cs" />
+    <Compile Include="Projection\Transforms\Bonne.cs" />
+    <Compile Include="Projection\Transforms\Cassini.cs" />
+    <Compile Include="Projection\Transforms\CrasterParabolic.cs" />
+    <Compile Include="Projection\Transforms\CylindricalEqualArea.cs" />
+    <Compile Include="Projection\Transforms\Eckert1.cs" />
+    <Compile Include="Projection\Transforms\Eckert2.cs" />
+    <Compile Include="Projection\Transforms\Eckert3.cs" />
+    <Compile Include="Projection\Transforms\Eckert4.cs" />
+    <Compile Include="Projection\Transforms\Eckert5.cs" />
+    <Compile Include="Projection\Transforms\Eckert6.cs" />
+    <Compile Include="Projection\Transforms\EllipticalTransform.cs" />
+    <Compile Include="Projection\Transforms\EquidistantConic.cs" />
+    <Compile Include="Projection\Transforms\EquidistantCylindrical.cs" />
+    <Compile Include="Projection\Transforms\Factors.cs" />
+    <Compile Include="Projection\Transforms\Foucaut.cs" />
+    <Compile Include="Projection\Transforms\GallStereographic.cs" />
+    <Compile Include="Projection\Transforms\Gauss.cs" />
+    <Compile Include="Projection\Transforms\GeneralSinusoidal.cs" />
+    <Compile Include="Projection\Transforms\GeostationarySatellite.cs" />
+    <Compile Include="Projection\Transforms\Gnomonic.cs" />
+    <Compile Include="Projection\Transforms\GoodeHomolosine.cs" />
+    <Compile Include="Projection\Transforms\HammerAitoff.cs" />
+    <Compile Include="Projection\Transforms\ITransform.cs" />
+    <Compile Include="Projection\Transforms\Kavraisky5.cs" />
+    <Compile Include="Projection\Transforms\Kavraisky7.cs" />
+    <Compile Include="Projection\Transforms\KnownTransforms.cs" />
+    <Compile Include="Projection\Transforms\Krovak.cs" />
+    <Compile Include="Projection\Transforms\LambertAzimuthalEqualArea.cs" />
+    <Compile Include="Projection\Transforms\LambertConformalConic.cs" />
+    <Compile Include="Projection\Transforms\LambertEqualAreaConic.cs" />
+    <Compile Include="Projection\Transforms\LongLat.cs" />
+    <Compile Include="Projection\Transforms\Loximuthal.cs" />
+    <Compile Include="Projection\Transforms\McBrydeThomasFlatPolarSine.cs" />
+    <Compile Include="Projection\Transforms\Mercator.cs" />
+    <Compile Include="Projection\Transforms\MillerCylindrical.cs" />
+    <Compile Include="Projection\Transforms\Mollweide.cs" />
+    <Compile Include="Projection\Transforms\NewZealandMapGrid.cs" />
+    <Compile Include="Projection\Transforms\ObliqueCylindricalEqualArea.cs" />
+    <Compile Include="Projection\Transforms\ObliqueMercator.cs" />
+    <Compile Include="Projection\Transforms\ObliqueStereographicAlternative.cs" />
+    <Compile Include="Projection\Transforms\Orthographic.cs" />
+    <Compile Include="Projection\Transforms\Polyconic.cs" />
+    <Compile Include="Projection\Transforms\Proj.cs" />
+    <Compile Include="Projection\Transforms\PutinsP1.cs" />
+    <Compile Include="Projection\Transforms\QuarticAuthalic.cs" />
+    <Compile Include="Projection\Transforms\Robinson.cs" />
+    <Compile Include="Projection\Transforms\Sinusoidal.cs" />
+    <Compile Include="Projection\Transforms\Stereographic.cs" />
+    <Compile Include="Projection\Transforms\SwissObliqueMercator.cs" />
+    <Compile Include="Projection\Transforms\Transform.cs" />
+    <Compile Include="Projection\Transforms\TransformManager.cs" />
+    <Compile Include="Projection\Transforms\TransverseMercator.cs" />
+    <Compile Include="Projection\Transforms\TwoPointEquidistant.cs" />
+    <Compile Include="Projection\Transforms\UniversalPolarStereographic.cs" />
+    <Compile Include="Projection\Transforms\UniversalTransverseMercator.cs" />
+    <Compile Include="Projection\Transforms\VanderGrinten1.cs" />
+    <Compile Include="Projection\Transforms\Wagner4.cs" />
+    <Compile Include="Projection\Transforms\Wagner5.cs" />
+    <Compile Include="Projection\Transforms\Wagner6.cs" />
+    <Compile Include="Projection\Transforms\Winkel1.cs" />
+    <Compile Include="Projection\Transforms\Winkel2.cs" />
+    <Compile Include="Projection\Transforms\WinkelTripel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Shape\PointShapeSet.cs" />
+    <Compile Include="Shape\PolygonShape.cs" />
+    <Compile Include="Shape\PolygonShapeSet.cs" />
+    <Compile Include="Shape\PolylineShape.cs" />
+    <Compile Include="Shape\ShapeTypes.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Projection\ProjectionMessages.resx" />
+    <EmbeddedResource Include="Resources\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\zoom_out.cur" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Layout\frmPageSetup.resx">
+      <DependentUpon>frmPageSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Legend\frmLegendBreaks.resx">
+      <DependentUpon>frmLegendBreaks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Legend\frmLegendSet.resx">
+      <DependentUpon>frmLegendSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Global\frmProperty.resx">
+      <DependentUpon>frmProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Legend\ScrollingControl.resx">
+      <DependentUpon>ScrollingControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Pan_Open.cur" />
+    <EmbeddedResource Include="Resources\zoom_in.cur" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Moveshape.cur" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Data\MeteoData\GRIB\GRIB2\grib2Parameters.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Map\frmIdentifer.resx">
+      <DependentUpon>frmIdentifer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Map\frmIdentiferGrid.resx">
+      <DependentUpon>frmIdentiferGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Layers.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\cursor.cur" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Move.cur" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Data\MapData\frmAddField.resx">
+      <DependentUpon>frmAddField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\MapData\frmAddField.zh-CHS.resx">
+      <DependentUpon>frmAddField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\MapData\frmAttriData.resx">
+      <DependentUpon>frmAttriData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\MapData\frmAttriData.zh-CHS.resx">
+      <DependentUpon>frmAttriData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\MapData\frmInputBox.resx">
+      <DependentUpon>frmInputBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\MapData\frmInputBox.zh-CHS.resx">
+      <DependentUpon>frmInputBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Global\Colors\ctrl2DColorBox.resx">
+      <DependentUpon>ctrl2DColorBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Global\Colors\ctrlVerticalColorSlider.resx">
+      <DependentUpon>ctrlVerticalColorSlider.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Global\Colors\frmColorPicker.resx">
+      <DependentUpon>frmColorPicker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Global\frmMeasurement.resx">
+      <DependentUpon>frmMeasurement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Global\frmMeasurement.zh-CHS.resx">
+      <DependentUpon>frmMeasurement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layer\frmLabelSet.resx">
+      <DependentUpon>frmLabelSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layer\frmLabelSet.zh-CHS.resx">
+      <DependentUpon>frmLabelSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layer\frmLayerProperty.resx">
+      <DependentUpon>frmLayerProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Legend\frmColorSymbolSet.resx">
+      <DependentUpon>frmColorSymbolSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Legend\frmLabelSymbolSet.resx">
+      <DependentUpon>frmLabelSymbolSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Legend\frmPointSymbolSet.resx">
+      <DependentUpon>frmPointSymbolSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Legend\frmPolygonSymbolSet.resx">
+      <DependentUpon>frmPolygonSymbolSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Legend\frmPolylineSymbolSet.resx">
+      <DependentUpon>frmPolylineSymbolSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Legend\LegendSchemeControl.resx">
+      <DependentUpon>LegendSchemeControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Legend\LegendView.resx">
+      <DependentUpon>LegendView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Legend\SymbolControl.resx">
+      <DependentUpon>SymbolControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\MoveVertex.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\TSB_LabelSet.png" />
+    <EmbeddedResource Include="Resources\TSB_ViewData.png" />
+    <EmbeddedResource Include="Resources\TSB_ZoomToLayer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Properties.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>if /I "$(ConfigurationName)" == "Release" "C:\Program Files (x86)\Eazfuscator.NET\Eazfuscator.NET.exe" "$(TargetPath)" --msbuild-project-path "$(ProjectPath)" --msbuild-project-configuration "$(ConfigurationName)" --msbuild-project-platform "$(PlatformName)" --msbuild-solution-path "$(SolutionPath)" -n --newline-flush -v 3.3</PostBuildEvent>
+  </PropertyGroup>
+</Project>
