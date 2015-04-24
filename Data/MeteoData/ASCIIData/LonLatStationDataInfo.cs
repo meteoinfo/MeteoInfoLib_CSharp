@@ -46,7 +46,7 @@ namespace MeteoInfoC.Data.MeteoData
 
             //Read data
             int i;
-            StreamReader sr = new StreamReader(aFile, System.Text.Encoding.Default);
+            StreamReader sr = new StreamReader(aFile, System.Text.Encoding.UTF8);
             string[] dataArray, fieldArray;            
             string aLine = sr.ReadLine();    //Title
             fieldArray = aLine.Split(',');
@@ -178,7 +178,7 @@ namespace MeteoInfoC.Data.MeteoData
         /// <returns>Station data</returns>
         public StationData GetStationData(int timeIdx, int varIdx, int levelIdx)
         {
-            StreamReader sr = new StreamReader(this.FileName, System.Text.Encoding.Default);
+            StreamReader sr = new StreamReader(this.FileName, System.Text.Encoding.UTF8);
             List<string[]> dataList = new List<string[]>();
             sr.ReadLine();
             string line = sr.ReadLine();
@@ -213,14 +213,18 @@ namespace MeteoInfoC.Data.MeteoData
 
             //Get real variable index
             int varIdx1 = FieldList.IndexOf(this.Variables[varIdx].Name);
-
+            String vstr;
             for (i = 0; i < dataList.Count; i++)
             {
                 dataArray = dataList[i];
                 stName = dataArray[0];
                 lon = double.Parse(dataArray[1]);
                 lat = double.Parse(dataArray[2]);
-                t = double.Parse(dataArray[varIdx1]);
+                vstr = dataArray[varIdx1];
+                if (String.IsNullOrEmpty(vstr))
+                    t = stationData.MissingValue;
+                else
+                    t = double.Parse(dataArray[varIdx1]);
                 //if (lon < 0)
                 //{
                 //    lon += 360;
@@ -277,7 +281,7 @@ namespace MeteoInfoC.Data.MeteoData
         /// <returns>null station data</returns>
         public StationData GetNullStationData()
         {
-            StreamReader sr = new StreamReader(this.FileName, System.Text.Encoding.Default);
+            StreamReader sr = new StreamReader(this.FileName, System.Text.Encoding.UTF8);
             List<string[]> dataList = new List<string[]>();
             sr.ReadLine();
             string line = sr.ReadLine();
@@ -369,7 +373,7 @@ namespace MeteoInfoC.Data.MeteoData
         /// <returns>StationInfoData</returns>
         public StationInfoData GetStationInfoData(int timeIdx, int levelIdx)
         {
-            StreamReader sr = new StreamReader(this.FileName, System.Text.Encoding.Default);
+            StreamReader sr = new StreamReader(this.FileName, System.Text.Encoding.UTF8);
             List<List<string>> dataList = new List<List<string>>();
             sr.ReadLine();
             string line = sr.ReadLine();

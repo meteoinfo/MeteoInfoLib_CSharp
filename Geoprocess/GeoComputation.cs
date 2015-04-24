@@ -2751,7 +2751,7 @@ namespace MeteoInfoC.Geoprocess
             return newPolygonlist;
         }
 
-        private static bool IsLineSegmentCross(Line lineA, Line lineB)
+        private static bool IsLineSegmentCross_old(Line lineA, Line lineB)
         {
             Extent boundA = new Extent(), boundB = new Extent();
             List<PointD> PListA = new List<PointD>(), PListB = new List<PointD>();
@@ -2775,6 +2775,76 @@ namespace MeteoInfoC.Geoprocess
                 else
                     return true;
             }
+        }
+
+        private static bool IsLineSegmentCross(Line lineA, Line lineB)
+        {
+            Extent boundA = new Extent(), boundB = new Extent();
+            List<PointD> PListA = new List<PointD>(), PListB = new List<PointD>();
+            PListA.Add(lineA.P1);
+            PListA.Add(lineA.P2);
+            PListB.Add(lineB.P1);
+            PListB.Add(lineB.P2);
+            boundA = MIMath.GetPointsExtent(PListA);
+            boundB = MIMath.GetPointsExtent(PListB);
+
+            if (!MIMath.IsExtentCross(boundA, boundB))
+                return false;
+            else
+            {
+                double d1 = CrossProduct(lineA.P1, lineA.P2, lineB.P1);
+                double d2 = CrossProduct(lineA.P1, lineA.P2, lineB.P2);
+                double d3 = CrossProduct(lineB.P1, lineB.P2, lineA.P1);
+                double d4 = CrossProduct(lineB.P1, lineB.P2, lineA.P2);
+                if ((d1 * d2 < 0) && (d3 * d4 < 0))
+                {
+                    return true;
+                }
+                else if (d1 == 0 && PointProduct(lineB.P1, lineA.P1, lineA.P2) <= 0)
+                {
+                    return true;
+                }
+                else if (d2 == 0 && PointProduct(lineB.P2, lineA.P1, lineA.P2) <= 0)
+                {
+                    return true;
+                }
+                else if (d3 == 0 && PointProduct(lineA.P1, lineB.P1, lineB.P2) <= 0)
+                {
+                    return true;
+                }
+                else if (d4 == 0 && PointProduct(lineA.P2, lineB.P1, lineB.P2) <= 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Cross product
+        /// </summary>
+        /// <param name="p1">Point 1</param>
+        /// <param name="p2">Point 2</param>
+        /// <param name="p3">Point 3</param>
+        /// <returns>Cross produt result</returns>
+        public static double CrossProduct(PointD p1, PointD p2, PointD p3)
+        {
+            return (p2.X - p1.X) * (p3.Y - p1.Y) - (p3.X - p1.X) * (p2.Y - p1.Y);
+        }
+
+        /// <summary>
+        /// Point product
+        /// </summary>
+        /// <param name="p1">Point 1</param>
+        /// <param name="p2">Point 2</param>
+        /// <param name="p3">Point 3</param>
+        /// <returns>Point produt result</returns>
+        public static double PointProduct(PointD p1, PointD p2, PointD p3)
+        {
+            return (p2.X - p1.X) * (p3.X - p1.X) + (p2.Y - p1.Y) * (p3.Y - p1.Y);
         }
 
         private static PointD GetCrossPoint(Line lineA, Line lineB)

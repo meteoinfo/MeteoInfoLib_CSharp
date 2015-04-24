@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.ComponentModel;
 using System.Reflection;
+using MeteoInfoC.Shape;
+using MeteoInfoC.Layer;
 
 namespace MeteoInfoC.Map
 {
@@ -51,6 +53,7 @@ namespace MeteoInfoC.Map
         private Boolean m_SetMaskLayer;
         private String m_MaskLayer;
         private List<string> m_list;
+        private List<PolygonShape> _shapes;
         #endregion
 
         #region Constructor
@@ -63,6 +66,7 @@ namespace MeteoInfoC.Map
             m_MapControl = aMapView;
             m_SetMaskLayer = false;
             m_MaskLayer = "";
+            _shapes = new List<PolygonShape>();
         }
         #endregion
 
@@ -129,8 +133,27 @@ namespace MeteoInfoC.Map
             set
             {
                 m_MaskLayer = value;
-                m_MapControl.PaintLayers();
+                MapLayer aLayer = m_MapControl.GetLayerFromName(m_MaskLayer);
+                if (aLayer != null)
+                {
+                    _shapes.Clear();
+                    foreach (PolygonShape shape in ((VectorLayer)aLayer).ShapeList)
+                    {
+                        _shapes.Add(shape);
+                    }
+                    m_MapControl.PaintLayers();
+                }
             }
+        }
+
+        /// <summary>
+        /// Get or set mask shapes
+        /// </summary>
+        [Browsable(false)]
+        public List<PolygonShape> Shapes
+        {
+            get { return _shapes; }
+            set { _shapes = value; }
         }
         #endregion
     }

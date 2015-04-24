@@ -128,15 +128,15 @@ namespace MeteoInfoC.Map
 
         private VectorLayer _lonLatLayer = null;
         private VectorLayer _lonLatProjLayer = null;
-        private GraphicCollection _graphicCollection = new GraphicCollection();
-        private bool _startNewGraphic = true;
-        private List<PointF> _graphicPoints = new List<PointF>();
-
+        
         private double _scaleX;
         private double _scaleY;
         private double _XYScaleFactor;
         private bool _multiGlobalDraw = true;
 
+        private GraphicCollection _graphicCollection = new GraphicCollection();
+        private bool _startNewGraphic = true;
+        private List<PointF> _graphicPoints = new List<PointF>();
         private GraphicCollection _visibleGraphics = new GraphicCollection();
         private GraphicCollection _selectedGraphics = new GraphicCollection();
         //private bool _isInSelectedGraphics = false;
@@ -1803,6 +1803,26 @@ namespace MeteoInfoC.Map
         /// <param name="name">layer name</param>
         /// <returns>map layer</returns>
         public MapLayer GetLayerFromName(string name)
+        {
+            MapLayer aLayer = null;
+            foreach (MapLayer ml in _layerSet.Layers)
+            {
+                if (ml.LayerName == name)
+                {
+                    aLayer = ml;
+                    break;
+                }
+            }
+
+            return aLayer;
+        }
+
+        /// <summary>
+        /// Get layer from name
+        /// </summary>
+        /// <param name="name">layer name</param>
+        /// <returns>map layer</returns>
+        public MapLayer GetLayer(string name)
         {
             MapLayer aLayer = null;
             foreach (MapLayer ml in _layerSet.Layers)
@@ -6240,12 +6260,10 @@ namespace MeteoInfoC.Map
         private void GetMaskOutGraphicsPath(Graphics g)
         {
             if (_maskOut.SetMaskLayer)
-            {
-                int aLayerHandle = GetLayerHandleFromName(_maskOut.MaskLayer);
-                if (aLayerHandle > 0)
+            {                
+                if (_maskOut.Shapes.Count > 0)
                 {                    
                     GraphicsPath tPath = new GraphicsPath();
-                    VectorLayer aLayer = (VectorLayer)GetLayerFromHandle(aLayerHandle);
                     int sNum = 0;
                     double[] lonShiftList = new double[]{ 0};
                     if (_projection.IsLonLatMap)
@@ -6253,7 +6271,7 @@ namespace MeteoInfoC.Map
 
                     foreach (double lonShift in lonShiftList)
                     {
-                        foreach (PolygonShape aPGS in aLayer.ShapeList)
+                        foreach (PolygonShape aPGS in _maskOut.Shapes)
                         {
                             GraphicsPath aPath = new GraphicsPath();
                             PointF[] points = new PointF[aPGS.Points.Count];
@@ -6315,8 +6333,7 @@ namespace MeteoInfoC.Map
 
             if (_maskOut.SetMaskLayer)
             {
-                int aLayerHandle = GetLayerHandleFromName(_maskOut.MaskLayer);
-                if (aLayerHandle > 0)
+                if (_maskOut.Shapes.Count > 0)
                 {
                     Matrix oldMatrix = g.Transform;
                     g.ResetTransform();

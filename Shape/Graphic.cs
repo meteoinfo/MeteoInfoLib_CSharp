@@ -21,6 +21,7 @@ namespace MeteoInfoC.Shape
         private Shape _shape = null;
         private ColorBreak _legend = null;
         private ResizeAbility _resizeAbility = ResizeAbility.ResizeAll;
+        private string _tag = "";
 
         #endregion
 
@@ -80,7 +81,16 @@ namespace MeteoInfoC.Shape
         public ResizeAbility ResizeAbility
         {
             get { return _resizeAbility; }
-        }        
+        }
+
+        /// <summary>
+        /// Get or set tag
+        /// </summary>
+        public string Tag
+        {
+            get { return _tag; }
+            set { _tag = value; }
+        }
 
         #endregion
 
@@ -137,6 +147,11 @@ namespace MeteoInfoC.Shape
         public void ExportToXML(ref XmlDocument doc, XmlElement parent)
         {
             XmlElement graphic = doc.CreateElement("Graphic");
+
+            XmlAttribute tagAttr = doc.CreateAttribute("Tag");
+            tagAttr.InnerText = this._tag;
+            graphic.Attributes.Append(tagAttr);
+
             AddShape(ref doc, graphic, _shape);
             AddLegend(ref doc, graphic, _legend, _shape.ShapeType);
 
@@ -374,6 +389,16 @@ namespace MeteoInfoC.Shape
             _legend = LoadLegend(legend, _shape.ShapeType);
 
             UpdateResizeAbility();
+
+            try
+            {
+                this._tag = graphicNode.Attributes["Tag"].InnerText;
+            }
+            catch
+            {
+
+            }
+
         }
 
         private Shape LoadShape(XmlNode shapeNode)

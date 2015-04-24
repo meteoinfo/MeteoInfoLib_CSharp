@@ -1588,7 +1588,7 @@ namespace MeteoInfoC.Data.MeteoData
             sw.WriteLine("DSET " + aFile);
             sw.WriteLine("DTYPE station");
             sw.WriteLine("STNMAP " + stnmapFile);
-            sw.WriteLine("MissingValue " + MissingValue);
+            sw.WriteLine("UNDEF " + MissingValue);
             sw.WriteLine("TITLE Surface station observation");
             sw.WriteLine("TDEF " + timeNum.ToString() + " LINEAR " +
                 sTime.ToString("HHZddMMMyyyy", DateTimeFormatInfo.InvariantInfo) + " " + tIncrement);

@@ -489,7 +489,10 @@ namespace MeteoInfoC.Data.MeteoData
                     for (j = 0; j < fieldList.Count; j++)
                     {
                         if (varList.Contains(fieldList[j]))
-                            aLayer.EditCellValue(fieldList[j], shapeNum, double.Parse(dataList[j]));
+                            if (String.IsNullOrEmpty(dataList[j]))
+                                aLayer.EditCellValue(fieldList[j], shapeNum, -9999.0);
+                            else
+                                aLayer.EditCellValue(fieldList[j], shapeNum, double.Parse(dataList[j]));
                         else
                             aLayer.EditCellValue(fieldList[j], shapeNum, dataList[j]);
                     }

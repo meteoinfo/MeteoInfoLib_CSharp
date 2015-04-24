@@ -185,12 +185,5 @@ D:\MyProgram\CSharp\MeteoInfoDev\MeteoInfoDLL\obj\Release\MeteoInfoC.Data.MapDat
 D:\MyProgram\CSharp\MeteoInfoDev\MeteoInfoDLL\obj\Release\MeteoInfoC.Data.MapData.frmAddField.zh-CHS.resources
 D:\MyProgram\CSharp\MeteoInfoDev\MeteoInfoDLL\obj\Release\MeteoInfoC.Data.MapData.frmAttriData.zh-CHS.resources
 D:\MyProgram\CSharp\MeteoInfoDev\MeteoInfoDLL\obj\Release\MeteoInfoC.Data.MapData.frmInputBox.zh-CHS.resources
-D:\MyProgram\CSharp\MeteoInfoDev\MeteoInfoDLL\obj\Release\ResolveAssemblyReference.cache
-D:\MyProgram\CSharp\MeteoInfoDev\MeteoInfoDLL\obj\Release\ResGen.read.5.tlog
-D:\MyProgram\CSharp\MeteoInfoDev\MeteoInfoDLL\obj\Release\ResGen.read.1.tlog
-D:\MyProgram\CSharp\MeteoInfoDev\MeteoInfoDLL\obj\Release\ResGen.read.7.tlog
-D:\MyProgram\CSharp\MeteoInfoDev\MeteoInfoDLL\obj\Release\ResGen.read.4.tlog
-D:\MyProgram\CSharp\MeteoInfoDev\MeteoInfoDLL\obj\Release\ResGen.write.5.tlog
-D:\MyProgram\CSharp\MeteoInfoDev\MeteoInfoDLL\obj\Release\ResGen.write.1.tlog
-D:\MyProgram\CSharp\MeteoInfoDev\MeteoInfoDLL\obj\Release\ResGen.write.7.tlog
-D:\MyProgram\CSharp\MeteoInfoDev\MeteoInfoDLL\obj\Release\ResGen.write.4.tlog
+D:\MyProgram\CSharp\MeteoInfoDev\MeteoInfoDLL\obj\Release\MeteoInfoDLL.csprojResolveAssemblyReference.cache
+D:\MyProgram\CSharp\MeteoInfoDev\MeteoInfoDLL\obj\Release\MeteoInfoDLL.csproj.GenerateResource.Cache

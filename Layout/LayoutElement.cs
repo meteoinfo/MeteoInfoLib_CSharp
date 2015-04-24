@@ -34,6 +34,7 @@ namespace MeteoInfoC.Layout
         private bool _Selected;
         private ResizeAbility _resizeAbility;
         private bool _visible = true;
+        private string _name = "";
 
         #endregion
 
@@ -185,6 +186,15 @@ namespace MeteoInfoC.Layout
         {
             get { return _resizeAbility; }
             set { _resizeAbility = value; }
+        }
+
+        /// <summary>
+        /// Get or set name
+        /// </summary>
+        public string Name
+        {
+            get { return _name; }
+            set { _name = value; }
         }
 
         #endregion
