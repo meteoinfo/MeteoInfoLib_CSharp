@@ -2451,7 +2451,7 @@ namespace MeteoInfoC.Data.MeteoData
             }
 
             aLayer.LayerName = lName;
-            aLS.FieldName = columnName;
+            //aLS.FieldName = columnName;
             aLayer.LegendScheme = (LegendScheme)aLS.Clone();
             aLayer.LayerDrawType = LayerDrawType.Barb;
 

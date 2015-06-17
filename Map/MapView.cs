@@ -5903,8 +5903,8 @@ namespace MeteoInfoC.Map
                                     Single bSize = ((PointBreak)aLS.LegendBreaks[0]).Size;
                                     foreach (PointBreak aPB in aLS.LegendBreaks)
                                     {
-                                        if (value == (double)aPB.StartValue || (value > (double)aPB.StartValue &&
-                                            value < (double)aPB.EndValue))
+                                        if (value == double.Parse(aPB.StartValue.ToString()) || (value > double.Parse(aPB.StartValue.ToString()) &&
+                                            value < double.Parse(aPB.EndValue.ToString())))
                                         {
                                             aColor = aPB.Color;
                                             Draw.DrawWindBarb(aColor, sPoint, aWB, g, bSize);
