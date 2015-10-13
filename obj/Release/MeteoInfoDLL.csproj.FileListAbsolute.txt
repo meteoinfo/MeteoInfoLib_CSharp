@@ -187,3 +187,6 @@ D:\MyProgram\CSharp\MeteoInfoDev\MeteoInfoDLL\obj\Release\MeteoInfoC.Data.MapDat
 D:\MyProgram\CSharp\MeteoInfoDev\MeteoInfoDLL\obj\Release\MeteoInfoC.Data.MapData.frmInputBox.zh-CHS.resources
 D:\MyProgram\CSharp\MeteoInfoDev\MeteoInfoDLL\obj\Release\MeteoInfoDLL.csprojResolveAssemblyReference.cache
 D:\MyProgram\CSharp\MeteoInfoDev\MeteoInfoDLL\obj\Release\MeteoInfoDLL.csproj.GenerateResource.Cache
+D:\MyProgram\CSharp\MeteoInfoDev\MeteoInfoDLL\bin\Release\HDF5DotNet.dll
+D:\MyProgram\CSharp\MeteoInfoDev\MeteoInfoDLL\bin\Release\IKVM.OpenJDK.Core.dll
+D:\MyProgram\CSharp\MeteoInfoDev\MeteoInfoDLL\bin\Release\j2k.dll

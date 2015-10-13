@@ -431,7 +431,7 @@ namespace MeteoInfoC.Drawing
             {
                 wFont = new Font("Weather", size / 4 * 3);
                 SizeF sf = g.MeasureString(((char)(aSM.weatherSymbol.weather + 100)).ToString(), wFont);
-                sPoint.X = sP.X - sf.Width - aSM.size / 2;
+                sPoint.X = sP.X - sf.Height - aSM.size / 2;
                 sPoint.Y = sP.Y - sf.Height / 2;
                 string text = ((char)(aSM.weatherSymbol.weather + 28)).ToString();
                 if (aSM.weatherSymbol.weather == 99)

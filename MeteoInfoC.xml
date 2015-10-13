@@ -12903,6 +12903,12 @@
             <param name="SelectedLabels">ref selected labels</param>
             <returns>If selected</returns>
         </member>
+        <member name="M:MeteoInfoC.Map.MapView.GetVisibleGraphics">
+            <summary>
+            Get visible graphics - including graphics of layer
+            </summary>
+            <returns>Visible graphics</returns>
+        </member>
         <member name="M:MeteoInfoC.Map.MapView.SelectGraphics(System.Drawing.PointF,MeteoInfoC.Shape.GraphicCollection@,System.Double@)">
             <summary>
             Select graphics by point

@@ -354,7 +354,7 @@ namespace MeteoInfoC.Data.MeteoData
             for (int i = 0; i < YNum; i++)
             {
                 for (int j = 0; j < XNum; j++)
-                    gData[i, j] = ImageBytes[i * YNum + j];
+                    gData[i, j] = ImageBytes[i * XNum + j];
             }
             gridData.Data = gData;
             gridData.X = X;

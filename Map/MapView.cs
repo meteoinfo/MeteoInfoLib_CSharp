@@ -2936,7 +2936,11 @@ namespace MeteoInfoC.Map
                 return false;
         }
 
-        private GraphicCollection GetVisibleGraphics()
+        /// <summary>
+        /// Get visible graphics - including graphics of layer
+        /// </summary>
+        /// <returns>Visible graphics</returns>
+        public GraphicCollection GetVisibleGraphics()
         {
             GraphicCollection graphicCollection = new GraphicCollection();
             foreach (Graphic aGraphic in _graphicCollection.GraphicList)
@@ -3482,6 +3486,15 @@ namespace MeteoInfoC.Map
         /// </summary>
         public void PaintLayers()
         {
+            if (this.Width < 10 || this.Height < 10)
+            {
+                return;
+            }
+            if (this.Layers.Count == 0)
+            {
+                return;
+            }
+
             if (!_lockViewUpdate)
             {
                 //RefreshXYScale(this.Width, this.Height);
@@ -11027,88 +11040,91 @@ namespace MeteoInfoC.Map
                     }
                     break;
                 case MouseTools.ResizeSelection:
-                    Graphic aGraphic = _selectedGraphics.GraphicList[0];
-                    if (_selectedRectangle.Width > 2 && _selectedRectangle.Height > 2)
+                    if (_selectedGraphics.GraphicList.Count > 0)
                     {
-                        switch (aGraphic.ResizeAbility)
+                        Graphic aGraphic = _selectedGraphics.GraphicList[0];
+                        if (_selectedRectangle.Width > 2 && _selectedRectangle.Height > 2)
                         {
-                            case ResizeAbility.SameWidthHeight:
-                                //deltaY = deltaX;
-                                switch (_resizeSelectedEdge)
-                                {
-                                    case Edge.TopLeft:
-                                        _resizeRectangle.X += deltaX;
-                                        _resizeRectangle.Y += deltaX;
-                                        _resizeRectangle.Width -= deltaX;
-                                        _resizeRectangle.Height -= deltaX;
-                                        break;
-                                    case Edge.BottomRight:
-                                        _resizeRectangle.Width += deltaX;
-                                        _resizeRectangle.Height += deltaX;
-                                        break;
-                                    case Edge.TopRight:
-                                        _resizeRectangle.Y += deltaY;
-                                        _resizeRectangle.Width -= deltaY;
-                                        _resizeRectangle.Height -= deltaY;
-                                        break;
-                                    case Edge.BottomLeft:
-                                        _resizeRectangle.X += deltaX;
-                                        _resizeRectangle.Width -= deltaX;
-                                        _resizeRectangle.Height -= deltaX;
-                                        break;
-                                }
-                                break;
-                            case ResizeAbility.ResizeAll:
-                                switch (_resizeSelectedEdge)
-                                {
-                                    case Edge.TopLeft:
-                                        _resizeRectangle.X += deltaX;
-                                        _resizeRectangle.Y += deltaY;
-                                        _resizeRectangle.Width -= deltaX;
-                                        _resizeRectangle.Height -= deltaY;
-                                        break;
-                                    case Edge.BottomRight:
-                                        _resizeRectangle.Width += deltaX;
-                                        _resizeRectangle.Height += deltaY;
-                                        break;
-                                    case Edge.Top:
-                                        _resizeRectangle.Y += deltaY;
-                                        _resizeRectangle.Height -= deltaY;
-                                        break;
-                                    case Edge.Bottom:
-                                        _resizeRectangle.Height += deltaY;
-                                        break;
-                                    case Edge.TopRight:
-                                        _resizeRectangle.Y += deltaY;
-                                        _resizeRectangle.Width += deltaX;
-                                        _resizeRectangle.Height -= deltaY;
-                                        break;
-                                    case Edge.BottomLeft:
-                                        _resizeRectangle.X += deltaX;
-                                        _resizeRectangle.Width -= deltaX;
-                                        _resizeRectangle.Height += deltaY;
-                                        break;
-                                    case Edge.Left:
-                                        _resizeRectangle.X += deltaX;
-                                        _resizeRectangle.Width -= deltaX;
-                                        break;
-                                    case Edge.Right:
-                                        _resizeRectangle.Width += deltaX;
-                                        break;
-                                }
-                                break;
+                            switch (aGraphic.ResizeAbility)
+                            {
+                                case ResizeAbility.SameWidthHeight:
+                                    //deltaY = deltaX;
+                                    switch (_resizeSelectedEdge)
+                                    {
+                                        case Edge.TopLeft:
+                                            _resizeRectangle.X += deltaX;
+                                            _resizeRectangle.Y += deltaX;
+                                            _resizeRectangle.Width -= deltaX;
+                                            _resizeRectangle.Height -= deltaX;
+                                            break;
+                                        case Edge.BottomRight:
+                                            _resizeRectangle.Width += deltaX;
+                                            _resizeRectangle.Height += deltaX;
+                                            break;
+                                        case Edge.TopRight:
+                                            _resizeRectangle.Y += deltaY;
+                                            _resizeRectangle.Width -= deltaY;
+                                            _resizeRectangle.Height -= deltaY;
+                                            break;
+                                        case Edge.BottomLeft:
+                                            _resizeRectangle.X += deltaX;
+                                            _resizeRectangle.Width -= deltaX;
+                                            _resizeRectangle.Height -= deltaX;
+                                            break;
+                                    }
+                                    break;
+                                case ResizeAbility.ResizeAll:
+                                    switch (_resizeSelectedEdge)
+                                    {
+                                        case Edge.TopLeft:
+                                            _resizeRectangle.X += deltaX;
+                                            _resizeRectangle.Y += deltaY;
+                                            _resizeRectangle.Width -= deltaX;
+                                            _resizeRectangle.Height -= deltaY;
+                                            break;
+                                        case Edge.BottomRight:
+                                            _resizeRectangle.Width += deltaX;
+                                            _resizeRectangle.Height += deltaY;
+                                            break;
+                                        case Edge.Top:
+                                            _resizeRectangle.Y += deltaY;
+                                            _resizeRectangle.Height -= deltaY;
+                                            break;
+                                        case Edge.Bottom:
+                                            _resizeRectangle.Height += deltaY;
+                                            break;
+                                        case Edge.TopRight:
+                                            _resizeRectangle.Y += deltaY;
+                                            _resizeRectangle.Width += deltaX;
+                                            _resizeRectangle.Height -= deltaY;
+                                            break;
+                                        case Edge.BottomLeft:
+                                            _resizeRectangle.X += deltaX;
+                                            _resizeRectangle.Width -= deltaX;
+                                            _resizeRectangle.Height += deltaY;
+                                            break;
+                                        case Edge.Left:
+                                            _resizeRectangle.X += deltaX;
+                                            _resizeRectangle.Width -= deltaX;
+                                            break;
+                                        case Edge.Right:
+                                            _resizeRectangle.Width += deltaX;
+                                            break;
+                                    }
+                                    break;
+                            }
                         }
+                        else
+                        {
+                            _resizeRectangle.Width = 3;
+                            _resizeRectangle.Height = 3;
+                        }
+                        //this.PaintGraphics();
+                        this.Refresh();
+                        aPen.Color = Color.Red;
+                        aPen.DashStyle = DashStyle.Dash;
+                        g.DrawRectangle(aPen, _resizeRectangle);
                     }
-                    else
-                    {
-                        _resizeRectangle.Width = 3;
-                        _resizeRectangle.Height = 3;
-                    }
-                    //this.PaintGraphics();
-                    this.Refresh();
-                    aPen.Color = Color.Red;
-                    aPen.DashStyle = DashStyle.Dash;
-                    g.DrawRectangle(aPen, _resizeRectangle);
                     break;
                 case MouseTools.New_Polyline:
                 case MouseTools.New_Polygon:
@@ -11601,16 +11617,18 @@ namespace MeteoInfoC.Map
                     _mouseTool = MouseTools.SelectElements;
                     break;
                 case MouseTools.ResizeSelection:
-                    Graphic aG = _selectedGraphics.GraphicList[0];
-                    Shape.Shape shape = aG.Shape;
-                    ResizeShapeOnScreen(ref shape, aG.Legend, _resizeRectangle);
-                    aG.Shape = shape;
+                    if (_selectedGraphics.GraphicList.Count > 0)
+                    {
+                        Graphic aG = _selectedGraphics.GraphicList[0];
+                        Shape.Shape shape = aG.Shape;
+                        ResizeShapeOnScreen(ref shape, aG.Legend, _resizeRectangle);
+                        aG.Shape = shape;
 
-                    _selectedGraphics.Remove(aG);
-                    _selectedGraphics.Insert(0, aG);
+                        _selectedGraphics.Remove(aG);
+                        _selectedGraphics.Insert(0, aG);
 
-                    PaintLayers();
-
+                        PaintLayers();
+                    }
                     _mouseTool = MouseTools.SelectElements;
                     break;
                 case MouseTools.New_Rectangle:
