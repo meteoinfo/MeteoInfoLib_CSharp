@@ -62,7 +62,10 @@ namespace MeteoInfoC.Layer
                     UpdateImage(_legendScheme);
                 }
                 else
-                    SetPaletteByLegend();
+                    if (base.Image == null)
+                        UpdateImage(_legendScheme);
+                    else
+                        SetPaletteByLegend();
             }
         }
 

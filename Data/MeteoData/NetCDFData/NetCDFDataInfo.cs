@@ -1269,6 +1269,7 @@ namespace MeteoInfoC.Data.MeteoData
                     case "level":
                     case "lev":
                     case "height":
+                    case "pressure":
                         dimType = DimensionType.Z;
                         break;
                 }
@@ -1491,6 +1492,7 @@ namespace MeteoInfoC.Data.MeteoData
                         case "level":
                         case "lev":
                         case "height":
+                        case "pressure":
                             _levelVar = aVarS;
                             break;
                     }

@@ -489,7 +489,10 @@ namespace MeteoInfoC.Layout
                     DrawHorizontalBarLegend(g, zoom);
                     break;
                 case LegendStyles.Bar_Vertical:
-                    DrawVerticalBarLegend(g, zoom);
+                    if (this._legendScheme.BreakNum < 20)
+                        DrawVerticalBarLegend(g, zoom);
+                    else
+                        DrawVerticalBarLegend_Ex(g, zoom);
                     break;
                 case LegendStyles.Normal:
                     DrawNormalLegend(g, zoom);
@@ -597,6 +600,7 @@ namespace MeteoInfoC.Layout
                     if (!aLS.LegendBreaks[i].DrawShape)
                     {
                         i += 1;
+                        row -= 1;
                         continue;
                     }
                     aP.Y += height + breakSpace;
@@ -816,6 +820,243 @@ namespace MeteoInfoC.Layout
                     {
                         aSF = g.MeasureString(caption, lFont);
                         g.DrawString(caption, lFont, labBrush, sP.X, sP.Y - aSF.Height / 2);
+                    }
+                }
+            }
+
+            lFont.Dispose();
+            labBrush.Dispose();
+        }
+
+        private void DrawVerticalBarLegend_Ex(Graphics g, float zoom)
+        {
+            LegendScheme aLS = _legendScheme;
+            PointF aP = new PointF(0, 0);
+            PointF sP = new PointF(0, 0);
+            SolidBrush labBrush = new SolidBrush(this.ForeColor);
+            bool DrawShape = true, DrawFill = true, DrawOutline = false;
+            Color FillColor = Color.Red, OutlineColor = this.ForeColor;
+            string caption = "";
+            SizeF aSF;
+
+            int bNum = aLS.BreakNum;
+            if (aLS.LegendBreaks[bNum - 1].IsNoData)
+                bNum -= 1;
+
+            int tickGap = this.GetTickGap(g);
+            List<int> labelIdxs = new List<int>();
+            int sIdx = (bNum % tickGap) / 2;
+            int labNum = bNum - 1;
+            if (aLS.LegendType == LegendType.UniqueValue) {
+                labNum += 1;
+            }
+            while (sIdx < labNum) {
+                labelIdxs.Add(sIdx);
+                sIdx += tickGap;
+            }
+
+            _vBarWidth = this.Width - this.GetLabelWidth(g) - 5;
+            float width = _vBarWidth * zoom;
+            _hBarHeight = (float)this.Height / bNum;
+            float height = (this.Height - 5) * zoom / bNum;
+            Font lFont = new Font(Font.Name, Font.Size * zoom, Font.Style);
+
+            for (int i = 0; i < bNum; i++)
+            {
+                switch (aLS.ShapeType)
+                {
+                    case ShapeTypes.Point:
+                        PointBreak aPB = (PointBreak)aLS.LegendBreaks[i];
+                        //DrawShape = aPB.DrawShape;
+                        DrawFill = aPB.DrawFill;
+                        //DrawOutline = aPB.drawOutline;
+                        FillColor = aPB.Color;
+                        //OutlineColor = aPB.outlineColor;
+                        break;
+                    case ShapeTypes.Polyline:
+                        PolyLineBreak aPLB = (PolyLineBreak)aLS.LegendBreaks[i];
+                        //DrawShape = aPLB.DrawPolyline;                        
+                        FillColor = aPLB.Color;
+                        break;
+                    case ShapeTypes.Polygon:
+                        PolygonBreak aPGB = (PolygonBreak)aLS.LegendBreaks[i];
+                        //DrawShape = aPGB.DrawShape;
+                        DrawFill = aPGB.DrawFill;
+                        //DrawOutline = aPGB.drawOutline;
+                        FillColor = aPGB.Color;
+                        //OutlineColor = aPGB.outlineColor;
+                        break;
+                    case ShapeTypes.Image:
+                        ColorBreak aCB = aLS.LegendBreaks[i];
+                        //DrawShape = true;
+                        DrawFill = true;
+                        FillColor = aCB.Color;
+                        break;
+                }
+
+                aP.X = width / 2;
+                aP.Y = i * height + height / 2;
+
+                if (aLS.LegendType == LegendType.UniqueValue)
+                {
+                    if (DrawShape)
+                    {
+                        if (aLS.ShapeType == ShapeTypes.Polygon)
+                        {
+                            PolygonBreak aPGB = (PolygonBreak)aLS.LegendBreaks[i].Clone();
+                            aPGB.DrawOutline = false;
+                            aPGB.OutlineColor = Color.Black;
+                            if (!aPGB.DrawShape)
+                            {
+                                aPGB.Color = Color.Transparent;
+                            }
+                            Draw.DrawPolygonSymbol(aP, width, height, aPGB, _legendLayer.TransparencyPerc, g);
+                        }
+                        else
+                            Draw.DrawPolygonSymbol(aP, FillColor, OutlineColor, width,
+                                height, DrawFill, DrawOutline, g);
+                    }
+                }
+                else
+                {
+                    if (DrawShape)
+                    {
+                        if (i == 0)
+                        {
+                            PointF[] Points = new PointF[3];
+                            Points[0].X = aP.X;
+                            Points[0].Y = 0;
+                            Points[1].X = 0;
+                            Points[1].Y = height;
+                            Points[2].X = width;
+                            Points[2].Y = height;
+                            if (aLS.ShapeType == ShapeTypes.Polygon)
+                            {
+                                PolygonBreak aPGB = (PolygonBreak)aLS.LegendBreaks[i].Clone();
+                                aPGB.DrawOutline = true;
+                                aPGB.OutlineColor = Color.Black;
+                                if (!aPGB.DrawShape)
+                                {
+                                    aPGB.Color = Color.Transparent;
+                                }
+                                Draw.DrawPolygon(Points, aPGB, g);
+                            }
+                            else
+                                Draw.DrawPolygon(Points, FillColor, OutlineColor, width,
+                                    height, DrawFill, DrawOutline, g);
+                        }
+                        else if (i == bNum - 1)
+                        {
+                            PointF[] Points = new PointF[3];
+                            Points[0].X = 0;
+                            Points[0].Y = i * height;
+                            Points[1].X = width;
+                            Points[1].Y = i * height;
+                            Points[2].X = aP.X;
+                            Points[2].Y = i * height + height;
+                            if (aLS.ShapeType == ShapeTypes.Polygon)
+                            {
+                                PolygonBreak aPGB = (PolygonBreak)aLS.LegendBreaks[i].Clone();
+                                aPGB.DrawOutline = false;
+                                aPGB.OutlineColor = Color.Black;
+                                if (!aPGB.DrawShape)
+                                {
+                                    aPGB.Color = Color.Transparent;
+                                }
+                                Draw.DrawPolygon(Points, aPGB, g);
+                            }
+                            else
+                                Draw.DrawPolygon(Points, FillColor, OutlineColor, width,
+                                    height, DrawFill, DrawOutline, g);
+                        }
+                        else
+                        {
+                            if (aLS.ShapeType == ShapeTypes.Polygon)
+                            {
+                                PolygonBreak aPGB = (PolygonBreak)aLS.LegendBreaks[i].Clone();
+                                aPGB.DrawOutline = false;
+                                aPGB.OutlineColor = Color.Black;
+                                if (!aPGB.DrawShape)
+                                {
+                                    aPGB.Color = Color.Transparent;
+                                }
+                                Draw.DrawPolygonSymbol(aP, width, height, aPGB, _legendLayer.TransparencyPerc, g);
+                            }
+                            else
+                                Draw.DrawPolygonSymbol(aP, FillColor, OutlineColor, width,
+                                     height, DrawFill, DrawOutline, g);
+                        }
+                    }
+                }
+            }
+
+            //Draw neatline
+            Pen pen = new Pen(Color.Black);
+            if (aLS.LegendType == LegendType.UniqueValue)
+            {
+                g.DrawRectangle(pen, 0, 0, width, height * bNum);
+            }
+            else
+            {
+                PointF[] points = new PointF[6];               
+                points[0] = new PointF(width / 2, 0);
+                points[1] = new PointF(0, height);
+                points[2] = new PointF(0, height * (bNum - 1));
+                points[3] = new PointF(width / 2, height * bNum);
+                points[4] = new PointF(width, height * (bNum - 1));
+                points[5] = new PointF(width, height);
+                g.DrawPolygon(pen, points);
+            }
+
+            //Draw ticks
+            //aP.Y = this.Height * zoom + height / 2;
+            aP.Y = height * bNum + height / 2;
+            int labLen = (int)(width / 3);
+            if (labLen < 5)
+            {
+                labLen = 5;
+                if (width < 5)
+                    labLen = (int)width;
+            }
+            for (int i = 0; i < bNum; i++)
+            {
+                int idx = i;
+                ColorBreak cb = aLS.LegendBreaks[idx];
+                if (aLS.LegendType == LegendType.UniqueValue)
+                {
+                    caption = cb.Caption;
+                }
+                else
+                {
+                    caption = cb.EndValue.ToString();
+                }
+
+                aP.X = width / 2;
+                aP.Y = aP.Y - height;
+
+                if (aLS.LegendType == LegendType.UniqueValue)
+                {
+                    if (labelIdxs.Contains(idx))
+                    {
+                        sP.X = aP.X + width / 2 + 5;
+                        sP.Y = aP.Y;
+                        aSF = g.MeasureString(caption, lFont);
+                        g.DrawString(caption, lFont, labBrush, sP.X, sP.Y - aSF.Height / 2);
+                    }
+                }
+                else
+                {
+                    if (labelIdxs.Contains(idx))
+                    {
+                        sP.X = aP.X + width / 2;
+                        sP.Y = aP.Y - height / 2;
+                        g.DrawLine(pen, sP.X - labLen, sP.Y, sP.X, sP.Y);
+                        sP.X = sP.X + 5;
+                        if (i < bNum - 1)
+                        {
+                            aSF = g.MeasureString(caption, lFont);
+                            g.DrawString(caption, lFont, labBrush, sP.X, sP.Y - aSF.Height / 2);
+                        }
                     }
                 }
             }
@@ -1092,6 +1333,30 @@ namespace MeteoInfoC.Layout
             return (int)Math.Ceiling(height);
         }
 
+        private int GetTickGap(Graphics g)
+        {
+            double len;
+            int n = this._legendScheme.BreakNum;
+            int nn;
+            if (this._legendStyle == LegendStyles.Bar_Horizontal)
+            {
+                len = this.Width;
+                int labLen = this.GetLabelWidth(g);
+                nn = (int)((len * 0.8) / labLen);
+            }
+            else
+            {
+                len = this.Height;
+                SizeF sf = g.MeasureString("Temp", this._font);
+                nn = (int)(len / sf.Height);
+            }
+            if (nn == 0)
+            {
+                nn = 1;
+            }
+            return n / nn + 1;
+        }
+
         private int GetTitleHeight(Graphics g)
         {
             SizeF aSF = g.MeasureString(_title, _titleFont);
@@ -1105,6 +1370,9 @@ namespace MeteoInfoC.Layout
         /// </summary>
         public void UpdateLegendSize()
         {
+            if (this._legendStyle != LegendStyles.Normal)
+                return;
+
             if (_legendScheme == null)
                 return;
 

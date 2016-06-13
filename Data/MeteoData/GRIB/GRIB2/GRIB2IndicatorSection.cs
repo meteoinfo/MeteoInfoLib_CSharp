@@ -33,6 +33,8 @@ namespace MeteoInfoC.Data.MeteoData
         /// </summary>
         public string Title;
 
+        public int Shift = 0;
+
         #endregion
 
         #region Constructor
@@ -44,6 +46,16 @@ namespace MeteoInfoC.Data.MeteoData
         {
             Length = 16;
             Title = ASCIIEncoding.ASCII.GetString(br.ReadBytes(4));
+            if (Title != "GRIB")
+            {
+                Byte b = br.ReadByte();
+                while(b == 0){
+                    b = br.ReadByte();
+                    Shift += 1;
+                }
+                br.BaseStream.Seek(-1, SeekOrigin.Current);
+                Title = ASCIIEncoding.ASCII.GetString(br.ReadBytes(4));
+            }
             br.ReadBytes(2);
             Discipline = br.ReadByte();
             Edition = br.ReadByte();

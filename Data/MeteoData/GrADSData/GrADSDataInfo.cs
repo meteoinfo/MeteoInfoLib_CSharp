@@ -276,7 +276,7 @@ namespace MeteoInfoC.Data.MeteoData
                         dataList.Add(dataArray[i]);
                     }
                 }
-                switch (((string)dataList[0]).ToUpper())
+                switch ((dataList[0]).ToUpper())
                 {
                     case "DSET":
                         DSET = (string)dataList[1];

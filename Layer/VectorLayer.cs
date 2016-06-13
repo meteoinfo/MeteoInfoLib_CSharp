@@ -1826,6 +1826,9 @@ namespace MeteoInfoC.Layer
         /// </summary>
         public void UpdateLegendIndexes()
         {
+            if (this.GetFieldIdxByName(LegendScheme.FieldName) < 0)
+                return;
+
             switch (LegendScheme.LegendType)
             {
                 case LegendType.UniqueValue:

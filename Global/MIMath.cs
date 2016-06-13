@@ -862,7 +862,7 @@ namespace MeteoInfoC.Global
         /// <returns>is or not equal</returns>
         public static bool DoubleEquals(double a, double b)
         {
-            double difference = Math.Abs(a * 0.00001);
+            double difference = Math.Abs(Math.Min(a, b) * 0.00001);
             if (Math.Abs(a - b) <= difference)
                 return true;
             else

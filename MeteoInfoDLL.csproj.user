@@ -26,4 +26,10 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <StartArguments>d:\MyProgram\CShart\MeteoInfo\bin\Debug\MeteoInfo.exe</StartArguments>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <StartArguments>d:\MyProgram\CShart\MeteoInfo\bin\Debug\MeteoInfo.exe</StartArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <StartArguments>d:\MyProgram\CShart\MeteoInfo\bin\Debug\MeteoInfo.exe</StartArguments>
+  </PropertyGroup>
 </Project>

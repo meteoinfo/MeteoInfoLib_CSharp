@@ -52,17 +52,17 @@ namespace MeteoInfoC.Legend
                     case ShapeTypes.Point:
                         PointBreak aPB = new PointBreak();
                         aPB = (PointBreak)_legendScheme.LegendBreaks[0];
-                        m_MinContourValue = (double)aPB.EndValue;
+                        m_MinContourValue = double.Parse(aPB.EndValue.ToString());
                         if (_legendScheme.HasNoData)
                         {
                             aPB = (PointBreak)_legendScheme.LegendBreaks[_legendScheme.BreakNum - 2];
-                            m_MaxContourValue = (double)aPB.StartValue;
+                            m_MaxContourValue = double.Parse(aPB.StartValue.ToString());
                             m_Interval = (m_MaxContourValue - m_MinContourValue) / (_legendScheme.BreakNum - 3);
                         }
                         else
                         {
                             aPB = (PointBreak)_legendScheme.LegendBreaks[_legendScheme.BreakNum - 1];
-                            m_MaxContourValue = (double)aPB.StartValue;
+                            m_MaxContourValue = double.Parse(aPB.StartValue.ToString());
                             m_Interval = (m_MaxContourValue - m_MinContourValue) / (_legendScheme.BreakNum - 2);
                         }                        
                         break;
@@ -70,17 +70,17 @@ namespace MeteoInfoC.Legend
                     case ShapeTypes.PolylineZ:
                         PolyLineBreak aPLB = new PolyLineBreak();
                         aPLB = (PolyLineBreak)_legendScheme.LegendBreaks[0];
-                        m_MinContourValue = (double)aPLB.EndValue;
+                        m_MinContourValue = double.Parse(aPLB.EndValue.ToString());
                         aPLB = (PolyLineBreak)_legendScheme.LegendBreaks[_legendScheme.BreakNum - 1];
-                        m_MaxContourValue = (double)aPLB.StartValue;
+                        m_MaxContourValue = double.Parse(aPLB.StartValue.ToString());
                         m_Interval = (m_MaxContourValue - m_MinContourValue) / (_legendScheme.BreakNum - 1);
                         break;
                     case ShapeTypes.Polygon:
                         PolygonBreak aPGB = new PolygonBreak();
                         aPGB = (PolygonBreak)_legendScheme.LegendBreaks[0];
-                        m_MinContourValue = (double)aPGB.EndValue;
+                        m_MinContourValue = double.Parse(aPGB.EndValue.ToString());
                         aPGB = (PolygonBreak)_legendScheme.LegendBreaks[_legendScheme.BreakNum - 1];
-                        m_MaxContourValue = (double)aPGB.StartValue;
+                        m_MaxContourValue = double.Parse(aPGB.StartValue.ToString());
                         m_Interval = (m_MaxContourValue - m_MinContourValue) / (_legendScheme.BreakNum - 2);
                         break;
                 }

@@ -92,6 +92,7 @@ namespace MeteoInfoC.Data.MeteoData
             {                
                 long messageStart = br.BaseStream.Position;
                 GRIB2IndicatorSection rINS = new GRIB2IndicatorSection(br);
+                messageStart += rINS.Shift;
                 long messageEnd = messageStart + rINS.RecordLength;
                 GRIB2IdentificationSection rIDS = new GRIB2IdentificationSection(br);
 

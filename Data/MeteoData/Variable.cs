@@ -537,7 +537,7 @@ namespace MeteoInfoC.Data.MeteoData
         /// Get time list
         /// </summary>
         /// <returns>Time list</returns>
-        public List<DateTime> getTimes()
+        public List<DateTime> GetTimes()
         {
             Dimension tDim = this.TDimension;
             if (tDim == null)
