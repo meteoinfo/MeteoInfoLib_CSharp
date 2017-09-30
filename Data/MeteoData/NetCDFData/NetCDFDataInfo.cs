@@ -1239,6 +1239,7 @@ namespace MeteoInfoC.Data.MeteoData
                             dimType = DimensionType.T;
                             break;
                         case "level":
+                        case "pressure":
                         case "pressure_level":
                             dimType = DimensionType.Z;
                             break;
@@ -2478,34 +2479,61 @@ namespace MeteoInfoC.Data.MeteoData
             varid = aVarS.VarId;
             int[] start = new int[aVarS.DimNumber];
             int[] count = new int[aVarS.DimNumber];
+            //for (i = 0; i < aVarS.DimNumber; i++)
+            //{
+            //    start[i] = 0;
+            //    count[i] = 1;
+            //}
             for (i = 0; i < aVarS.DimNumber; i++)
             {
-                start[i] = 0;
-                count[i] = 1;
+                Dimension dim = aVarS.Dimensions[i];
+                switch (dim.DimType)
+                {
+                    case DimensionType.T:
+                        start[i] = timeIdx;
+                        count[i] = 1;
+                        break;
+                    case DimensionType.Z:
+                        start[i] = levelIdx;
+                        count[i] = 1;
+                        break;
+                    case DimensionType.Y:
+                        start[i] = 0;
+                        count[i] = yNum;
+                        break;
+                    case DimensionType.X:
+                        start[i] = 0;
+                        count[i] = xNum;
+                        break;
+                    default:
+                        start[i] = 0;
+                        count[i] = 1;
+                        break;
+                }
             }
-            if (aVarS.DimNumber == 4)
-            {
-                start[0] = timeIdx;
-                start[1] = levelIdx;
-                count[2] = yNum;
-                count[3] = xNum;
-            }
-            else if (aVarS.DimNumber == 3)
-            {
-                start[0] = timeIdx;
-                count[1] = yNum;
-                count[2] = xNum;
-            }
-            else if (aVarS.DimNumber == 2)
-            {
-                count[0] = yNum;
-                count[1] = xNum;
-            }
-            else
-            {
-                MessageBox.Show("The variation of " + aVarS.Name + " can't be used!" +
-                    Environment.NewLine + "The dimension number is: " + aVarS.DimNumber, "Error");
-            }
+            //if (aVarS.DimNumber == 4)
+            //{
+            //    start[0] = timeIdx;
+            //    start[1] = levelIdx;
+            //    count[2] = yNum;
+            //    count[3] = xNum;
+            //}
+            //else if (aVarS.DimNumber == 3)
+            //{
+            //    start[0] = timeIdx;
+            //    count[1] = yNum;
+            //    count[2] = xNum;
+            //}
+            //else if (aVarS.DimNumber == 2)
+            //{
+            //    count[0] = yNum;
+            //    count[1] = xNum;
+            //}
+            //else
+            //{
+            //    MessageBox.Show("The variation of " + aVarS.Name + " can't be used!" +
+            //        Environment.NewLine + "The dimension number is: " + aVarS.DimNumber, "Error");
+            //}
             double[] aData = new double[yNum * xNum];
 
             switch (aVarS.NCType)
