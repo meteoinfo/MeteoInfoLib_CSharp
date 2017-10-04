@@ -153,7 +153,6 @@ D:\MyProgram\CSharp\MeteoInfoDev\MeteoInfoDLL\bin\Release\IKVM.OpenJDK.Core.dll
 D:\MyProgram\CSharp\MeteoInfoDev\MeteoInfoDLL\bin\Release\j2k.dll
 D:\MyProgram\CSharp\MeteoInfoDev\MeteoInfoDLL\bin\Release\wContour.dll
 D:\MyProgram\CSharp\MeteoInfoDev\MeteoInfoDLL\bin\Release\wContour.pdb
-D:\MyProgram\CSharp\MeteoInfoDev\MeteoInfoDLL\bin\Release\wContour.xml
 D:\MyProgram\CSharp\MeteoInfoDev\MeteoInfoDLL\obj\Release\MeteoInfoC.Projection.ProjectionMessages.resources
 D:\MyProgram\CSharp\MeteoInfoDev\MeteoInfoDLL\obj\Release\MeteoInfoC.Resources.Resources.resources
 D:\MyProgram\CSharp\MeteoInfoDev\MeteoInfoDLL\obj\Release\MeteoInfoC.Layout.frmPageSetup.resources
@@ -189,3 +188,5 @@ D:\MyProgram\CSharp\MeteoInfoDev\MeteoInfoDLL\obj\Release\MeteoInfoDLL.csproj.Ge
 D:\MyProgram\CSharp\MeteoInfoDev\MeteoInfoDLL\obj\Release\zh-CHS\MeteoInfoC.resources.dll
 D:\MyProgram\CSharp\MeteoInfoDev\MeteoInfoDLL\obj\Release\MeteoInfoC.dll
 D:\MyProgram\CSharp\MeteoInfoDev\MeteoInfoDLL\obj\Release\MeteoInfoC.pdb
+D:\MyProgram\CSharp\MeteoInfoDev\MeteoInfoDLL\bin\Release\wContour.xml
+D:\MyProgram\CSharp\MeteoInfoDev\MeteoInfoDLL\obj\Release\MeteoInfoDLL.csprojResolveAssemblyReference.cache

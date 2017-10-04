@@ -5085,6 +5085,11 @@ namespace MeteoInfoC.Map
         private List<PointF> DrawPolygon(Graphics g, Polygon aPG, PolygonBreak aPGB, double LonShift,
             bool isSelected)
         {
+            if (aPG.OutLine.Count < 3)
+            {
+                return new List<PointF>();
+            }
+
             PointF[] Points = new PointF[aPG.OutLine.Count];
             PointD wPoint = new PointD();
             float X = 0;
@@ -5116,11 +5121,14 @@ namespace MeteoInfoC.Map
                         Points[j] = new PointF(X, Y);
                     }
                     //aPath = new GraphicsPath();
-                    aPath.AddPolygon(Points);
-                    GraphicsPath cPath = new GraphicsPath();
-                    cPath.AddLines(Points);
-                    bPath.AddPath(cPath, false);
-                    //aRegion.Xor(aPath);
+                    if (Points.Length > 2)
+                    {
+                        aPath.AddPolygon(Points);
+                        GraphicsPath cPath = new GraphicsPath();
+                        cPath.AddLines(Points);
+                        bPath.AddPath(cPath, false);
+                        //aRegion.Xor(aPath);
+                    }
                 }
             }
 

@@ -815,6 +815,20 @@ namespace MeteoInfoC.Data.MeteoData
         /// <returns>VectorLayer</returns>
         public static VectorLayer CreateContourLayer(GridData gridData, LegendScheme aLS, string LName, string fieldName)
         {
+            return CreateContourLayer(gridData, aLS, LName, fieldName, true);
+        }
+
+        /// <summary>
+        /// Create contour layer
+        /// </summary>
+        /// <param name="gridData">grid data</param>        
+        /// <param name="aLS">legend scheme</param>
+        /// <param name="LName">layer name</param>
+        /// <param name="fieldName">field name</param>
+        /// <param name="smooth">Smooth or not</param>
+        /// <returns>VectorLayer</returns>
+        public static VectorLayer CreateContourLayer(GridData gridData, LegendScheme aLS, string LName, string fieldName, bool smooth)
+        {
             List<wContour.PolyLine> ContourLines = new List<wContour.PolyLine>();
 
             double[] cValues = new double[1];
@@ -832,7 +846,8 @@ namespace MeteoInfoC.Data.MeteoData
             if (ContourLines.Count == 0)
                 return null;
 
-            ContourLines = wContour.Contour.SmoothLines(ContourLines);
+            if (smooth)
+                ContourLines = wContour.Contour.SmoothLines(ContourLines);
 
             wContour.PolyLine aLine;
             double aValue;
@@ -1003,6 +1018,20 @@ namespace MeteoInfoC.Data.MeteoData
         /// <returns>vector layer</returns>
         public static VectorLayer CreateShadedLayer(GridData gridData, LegendScheme aLS, string LName, string fieldName)
         {
+            return CreateShadedLayer(gridData, aLS, LName, fieldName, true);
+        }
+
+        /// <summary>
+        /// Create shaded layer
+        /// </summary>
+        /// <param name="gridData">grid data</param>        
+        /// <param name="aLS">legend scheme</param>
+        /// <param name="LName">layer name</param>
+        /// <param name="fieldName">field name</param>
+        /// <param name="smooth">Smooth or not</param>
+        /// <returns>vector layer</returns>
+        public static VectorLayer CreateShadedLayer(GridData gridData, LegendScheme aLS, string LName, string fieldName, bool smooth)
+        {
             List<wContour.PolyLine> ContourLines = new List<wContour.PolyLine>();
             List<wContour.Polygon> ContourPolygons = new List<wContour.Polygon>();
 
@@ -1018,8 +1047,9 @@ namespace MeteoInfoC.Data.MeteoData
             ContourLines = ContourDraw.TracingContourLines(gridData.Data,
                 cValues, gridData.X, gridData.Y, gridData.MissingValue, ref Borders);      
        
+            if (smooth)
+                ContourLines = wContour.Contour.SmoothLines(ContourLines);
 
-            ContourLines = wContour.Contour.SmoothLines(ContourLines);
             ContourPolygons = ContourDraw.TracingPolygons(gridData.Data, ContourLines, Borders,
                 gridData.X, gridData.Y, cValues);
 
