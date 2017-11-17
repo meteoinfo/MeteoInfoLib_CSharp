@@ -896,6 +896,30 @@ namespace MeteoInfoC.Data
         public void SaveAsMICAPS4File(string aFile, string description, DateTime aTime, int hours, int level,
             float smooth, float boldValue)
         {
+            double MinData = 0;
+            double MaxData = 0;
+            double undef = 9999;
+
+            bool hasNoData = Drawing.ContourDraw.GetMaxMinValue(Data, undef, ref MinData, ref MaxData);
+            int dNum = Global.MIMath.GetDecimalNum(MinData);
+
+            SaveAsMICAPS4File(aFile, description, aTime, hours, level, smooth, boldValue, dNum);
+        }
+
+        /// <summary>
+        /// Save as MICAPS 4 data file
+        /// </summary>
+        /// <param name="aFile">file path</param>
+        /// <param name="description">description</param>
+        /// <param name="aTime">data time</param>
+        /// <param name="hours">hours</param>
+        /// <param name="level">level</param>
+        /// <param name="smooth">smooth coefficient</param>
+        /// <param name="boldValue">bold value</param>
+        /// <param name="dNum">Decimal number of the data</param>
+        public void SaveAsMICAPS4File(string aFile, string description, DateTime aTime, int hours, int level,
+            float smooth, float boldValue, int dNum)
+        {
             //Get contour values
             double[] CValues;            
             double MinData = 0;
@@ -904,8 +928,7 @@ namespace MeteoInfoC.Data
 
             bool hasNoData = Drawing.ContourDraw.GetMaxMinValue(Data, undef, ref MinData, ref MaxData);
             CValues = Legend.LegendManage.CreateContourValues(MinData, MaxData);
-            double cDelt = CValues[1] - CValues[0];            
-            int dNum = Global.MIMath.GetDecimalNum(MinData);
+            double cDelt = CValues[1] - CValues[0];                        
             string dFormat = "f" + dNum.ToString();
 
             //Write file
@@ -954,6 +977,31 @@ namespace MeteoInfoC.Data
         public void SaveAsMICAPS4File(string aFile, string description, DateTime aTime, int hours, int level,
             float smooth, float boldValue, Projections.ProjectionInfo projInfo)
         {
+            double MinData = 0;
+            double MaxData = 0;
+            double undef = 9999;
+
+            bool hasNoData = Drawing.ContourDraw.GetMaxMinValue(Data, undef, ref MinData, ref MaxData);
+            int dNum = Global.MIMath.GetDecimalNum(MinData);
+
+            SaveAsMICAPS4File(aFile, description, aTime, hours, level, smooth, boldValue, projInfo, dNum);
+        }
+
+        /// <summary>
+        /// Save as MICAPS 4 data file
+        /// </summary>
+        /// <param name="aFile">file path</param>
+        /// <param name="description">description</param>
+        /// <param name="aTime">data time</param>
+        /// <param name="hours">hours</param>
+        /// <param name="level">level</param>
+        /// <param name="smooth">smooth coefficient</param>
+        /// <param name="boldValue">bold value</param>
+        /// <param name="projInfo">projection information</param>
+        /// <param name="dNum">Decimal number of the data</param>
+        public void SaveAsMICAPS4File(string aFile, string description, DateTime aTime, int hours, int level,
+            float smooth, float boldValue, Projections.ProjectionInfo projInfo, int dNum)
+        {
             //Get contour values
             double[] CValues;
             double MinData = 0;
@@ -962,8 +1010,7 @@ namespace MeteoInfoC.Data
 
             bool hasNoData = Drawing.ContourDraw.GetMaxMinValue(Data, undef, ref MinData, ref MaxData);
             CValues = Legend.LegendManage.CreateContourValues(MinData, MaxData);
-            double cDelt = CValues[1] - CValues[0];
-            int dNum = Global.MIMath.GetDecimalNum(MinData);
+            double cDelt = CValues[1] - CValues[0];            
             string dFormat = "f" + dNum.ToString();
 
             //Write file
