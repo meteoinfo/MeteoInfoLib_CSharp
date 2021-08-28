@@ -2,8 +2,32 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0-windows</TargetFramework>
-	<UseWindowsForms>true</UseWindowsForms>  
+	<UseWindowsForms>true</UseWindowsForms>
+	<PackageReadmeFile>README.md</PackageReadmeFile>
+	<Authors>Yaqiang Wang</Authors>
+	<Product>MeteoInfoC</Product>
+	<Description>.Net 5 Version of  MeteoInfoC</Description>
+	<PackageProjectUrl>http://www.meteothink.org/</PackageProjectUrl>  
   </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="HDF5DotNet.x86" Version="1.8.9" />
+  </ItemGroup>
 
   <ItemGroup>
     <Reference Include="IKVM.OpenJDK.Core">

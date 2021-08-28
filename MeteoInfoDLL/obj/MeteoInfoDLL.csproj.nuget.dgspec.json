@@ -42,6 +42,12 @@
       "frameworks": {
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
+          "dependencies": {
+            "HDF5DotNet.x86": {
+              "target": "Package",
+              "version": "[1.8.9, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

@@ -164,20 +164,20 @@ namespace MeteoInfoC.Data.MeteoData
         {
             H5GroupId infoGId = H5G.open(_fileID, "HDFEOS INFORMATION");
             string metaStr = String.Empty;
-            ulong num_meta = H5G.getNumObjects(infoGId);
+            var num_meta = H5G.getNumObjects(infoGId);
             for (int i = 0; i < (int)num_meta; i++)
             {
-                string metaName = H5G.getObjectNameByIndex(infoGId, i);
+                string metaName = H5G.getObjectNameByIndex(infoGId, (ulong)i);
                 if (metaName.Contains("StructMetadata"))
                 {
                     ObjectInfo metaInfo = H5G.getObjectInfo(infoGId, metaName, false);
                     H5DataSetId dsId = H5D.open(infoGId, metaName);
                     H5DataSpaceId spaId = H5D.getSpace(dsId);
                     H5DataTypeId dtId = H5D.getType(dsId);
-                    uint size = H5T.getSize(dtId);
+                    var size = H5T.getSize(dtId);
                     H5T.H5TClass tcls = H5T.getClass(dtId);
                     int rank = H5S.getSimpleExtentNDims(spaId);
-                    ulong[] dims = H5S.getSimpleExtentDims(spaId);
+                    var dims = H5S.getSimpleExtentDims(spaId);
                     //string[] outdata = new string[1];
                     H5DataTypeId dtypeId = H5T.copy(H5T.H5Type.C_S1);
                     H5T.setSize(dtypeId, size);
@@ -339,7 +339,7 @@ namespace MeteoInfoC.Data.MeteoData
             ulong num_objs = (ulong)H5G.getNumObjects(groupId);
             for (int i = 0; i < (int)num_objs; i++)
             {
-                string objName = H5G.getObjectNameByIndex(groupId, i);
+                string objName = H5G.getObjectNameByIndex(groupId, (ulong)i);
                 ObjectInfo oInfo = H5G.getObjectInfo(groupId, objName, false);
                 if (oInfo.objectType == H5GType.DATASET)
                 {
@@ -352,7 +352,7 @@ namespace MeteoInfoC.Data.MeteoData
                     if (rank != 1)
                         continue;
 
-                    ulong[] dims = H5S.getSimpleExtentDims(spaId);
+                    var dims = H5S.getSimpleExtentDims(spaId);
                     int dimIdx = -1;
                     for (int d = 0; d < _dimensions.Count; d++)
                     {
@@ -437,10 +437,10 @@ namespace MeteoInfoC.Data.MeteoData
             string gName = H5G.getObjectNameByIndex(swathsGId, 0);
             H5GroupId dataGId = H5G.open(swathsGId, gName);
             H5GroupId groupId = H5G.open(dataGId, "Geolocation Fields");            
-            ulong num_objs = H5G.getNumObjects(groupId);
+            var num_objs = H5G.getNumObjects(groupId);
             for (int i = 0; i < (int)num_objs; i++)
             {
-                string objName = H5G.getObjectNameByIndex(groupId, i);
+                string objName = H5G.getObjectNameByIndex(groupId, (ulong)i);
                 ObjectInfo oInfo = H5G.getObjectInfo(groupId, objName, false);
                 if (oInfo.objectType == H5GType.DATASET)
                 {
@@ -453,7 +453,7 @@ namespace MeteoInfoC.Data.MeteoData
                     if (rank != 1)
                         continue;
 
-                    ulong[] dims = H5S.getSimpleExtentDims(spaId);
+                    var dims = H5S.getSimpleExtentDims(spaId);
                     int dimIdx = -1;
                     for (int d = 0; d < _dimensions.Count; d++)
                     {
@@ -640,7 +640,7 @@ namespace MeteoInfoC.Data.MeteoData
             H5DataTypeId dtId = H5D.getType(dsId);
             H5T.H5TClass tcls = H5T.getClass(dtId);
             int rank = H5S.getSimpleExtentNDims(spaId);
-            ulong[] dims = H5S.getSimpleExtentDims(spaId);
+            var dims = H5S.getSimpleExtentDims(spaId);
             string[] outdata = new string[1];
             H5DataTypeId dtypeId = H5T.copy(H5T.H5Type.C_S1);
             H5D.read(dsId, dtypeId, new H5Array<string>(outdata));
@@ -1212,7 +1212,7 @@ namespace MeteoInfoC.Data.MeteoData
             undef = undef * scaleFactor + offset;
 
             int rank = H5S.getSimpleExtentNDims(spaId);
-            ulong[] dims = H5S.getSimpleExtentDims(spaId);                        
+            var dims = H5S.getSimpleExtentDims(spaId);                        
 
             float[] outdata = new float[dims[0]];
             switch (rank)
@@ -1298,7 +1298,7 @@ namespace MeteoInfoC.Data.MeteoData
             undef = undef * scaleFactor + offset;
 
             int rank = H5S.getSimpleExtentNDims(spaId);
-            ulong[] dims = H5S.getSimpleExtentDims(spaId);
+            var dims = H5S.getSimpleExtentDims(spaId);
 
             float[,] outdata = new float[dims[0], dims[1]];
             switch (rank)

@@ -11,11 +11,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("MeteoInfoDLL")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("Yaqiang Wang")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
+[assembly: System.Reflection.AssemblyDescriptionAttribute(".Net 5 Version of  MeteoInfoC")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
-[assembly: System.Reflection.AssemblyProductAttribute("MeteoInfoDLL")]
+[assembly: System.Reflection.AssemblyProductAttribute("MeteoInfoC")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MeteoInfoDLL")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 [assembly: System.Runtime.Versioning.TargetPlatformAttribute("Windows7.0")]

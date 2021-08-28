@@ -8,12 +8,26 @@
     ".NETCoreApp,Version=v5.0": {
       "MeteoInfoDLL/1.0.0": {
         "dependencies": {
+          "HDF5DotNet.x86": "1.8.9",
           "IKVM.OpenJDK.Core": "0.44.0.5",
           "j2k": "0.0.0.0",
           "wContour": "1.6.2.0"
         },
         "runtime": {
           "MeteoInfoDLL.dll": {}
+        },
+        "resources": {
+          "zh-CHS/MeteoInfoDLL.resources.dll": {
+            "locale": "zh-CHS"
+          }
+        }
+      },
+      "HDF5DotNet.x86/1.8.9": {
+        "runtime": {
+          "lib/net40/HDF5DotNet.dll": {
+            "assemblyVersion": "1.8.9.0",
+            "fileVersion": "0.0.0.0"
+          }
         }
       },
       "IKVM.OpenJDK.Core/0.44.0.5": {
@@ -47,6 +61,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "HDF5DotNet.x86/1.8.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-m6uq2SL1z5Bjo1AKonNeA8lZwxJ0a5f1K71hyEFXq2tErJi2AwvrQqJu1OKluulQxkHyTcApng6S39HLYy8XFA==",
+      "path": "hdf5dotnet.x86/1.8.9",
+      "hashPath": "hdf5dotnet.x86.1.8.9.nupkg.sha512"
     },
     "IKVM.OpenJDK.Core/0.44.0.5": {
       "type": "reference",
