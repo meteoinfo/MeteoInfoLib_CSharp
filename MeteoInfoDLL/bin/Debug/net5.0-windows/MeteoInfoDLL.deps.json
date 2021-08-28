@@ -1,0 +1,67 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "MeteoInfoDLL/1.0.0": {
+        "dependencies": {
+          "IKVM.OpenJDK.Core": "0.44.0.5",
+          "j2k": "0.0.0.0",
+          "wContour": "1.6.2.0"
+        },
+        "runtime": {
+          "MeteoInfoDLL.dll": {}
+        }
+      },
+      "IKVM.OpenJDK.Core/0.44.0.5": {
+        "runtime": {
+          "IKVM.OpenJDK.Core.dll": {
+            "assemblyVersion": "0.44.0.5",
+            "fileVersion": "0.44.0.5"
+          }
+        }
+      },
+      "j2k/0.0.0.0": {
+        "runtime": {
+          "j2k.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "wContour/1.6.2.0": {
+        "runtime": {
+          "wContour.dll": {
+            "assemblyVersion": "1.6.2.0",
+            "fileVersion": "1.6.2.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MeteoInfoDLL/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "IKVM.OpenJDK.Core/0.44.0.5": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "j2k/0.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "wContour/1.6.2.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

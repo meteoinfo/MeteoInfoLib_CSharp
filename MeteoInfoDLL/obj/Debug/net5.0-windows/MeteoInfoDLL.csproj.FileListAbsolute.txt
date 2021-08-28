@@ -1,0 +1,17 @@
+E:\GitHub\MeteoInfoC\MeteoInfoDLL\bin\Debug\net5.0-windows\MeteoInfoDLL.deps.json
+E:\GitHub\MeteoInfoC\MeteoInfoDLL\bin\Debug\net5.0-windows\MeteoInfoDLL.dll
+E:\GitHub\MeteoInfoC\MeteoInfoDLL\bin\Debug\net5.0-windows\ref\MeteoInfoDLL.dll
+E:\GitHub\MeteoInfoC\MeteoInfoDLL\bin\Debug\net5.0-windows\MeteoInfoDLL.pdb
+E:\GitHub\MeteoInfoC\MeteoInfoDLL\obj\Debug\net5.0-windows\MeteoInfoDLL.GeneratedMSBuildEditorConfig.editorconfig
+E:\GitHub\MeteoInfoC\MeteoInfoDLL\obj\Debug\net5.0-windows\MeteoInfoDLL.AssemblyInfoInputs.cache
+E:\GitHub\MeteoInfoC\MeteoInfoDLL\obj\Debug\net5.0-windows\MeteoInfoDLL.AssemblyInfo.cs
+E:\GitHub\MeteoInfoC\MeteoInfoDLL\obj\Debug\net5.0-windows\MeteoInfoDLL.csproj.CoreCompileInputs.cache
+E:\GitHub\MeteoInfoC\MeteoInfoDLL\obj\Debug\net5.0-windows\MeteoInfoDLL.dll
+E:\GitHub\MeteoInfoC\MeteoInfoDLL\obj\Debug\net5.0-windows\ref\MeteoInfoDLL.dll
+E:\GitHub\MeteoInfoC\MeteoInfoDLL\obj\Debug\net5.0-windows\MeteoInfoDLL.pdb
+E:\GitHub\MeteoInfoC\MeteoInfoDLL\bin\Debug\net5.0-windows\IKVM.OpenJDK.Core.dll
+E:\GitHub\MeteoInfoC\MeteoInfoDLL\bin\Debug\net5.0-windows\j2k.dll
+E:\GitHub\MeteoInfoC\MeteoInfoDLL\bin\Debug\net5.0-windows\wContour.dll
+E:\GitHub\MeteoInfoC\MeteoInfoDLL\bin\Debug\net5.0-windows\wContour.pdb
+E:\GitHub\MeteoInfoC\MeteoInfoDLL\bin\Debug\net5.0-windows\wContour.xml
+E:\GitHub\MeteoInfoC\MeteoInfoDLL\obj\Debug\net5.0-windows\MeteoInfoDLL.csproj.CopyComplete
