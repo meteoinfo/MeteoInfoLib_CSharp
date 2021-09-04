@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -148,7 +148,7 @@ namespace MeteoInfoC.Legend
             // 
             this.BackColor = System.Drawing.Color.White;
             this.Controls.AddRange(new System.Windows.Forms.Control[] {
-                                                                          this._vScrollBar});
+																		  this._vScrollBar});
             ////
             //// MapFrame
             ////
@@ -190,14 +190,14 @@ namespace MeteoInfoC.Legend
         /// </summary>
         public MapFrame ActiveMapFrame
         {
-            get
+            get 
             {
                 foreach (MapFrame mf in _mapFrames)
                     if (mf.Active)
                         return mf;
 
-                return null;
-            }
+                return null; 
+            }            
         }
 
         /// <summary>
@@ -218,7 +218,7 @@ namespace MeteoInfoC.Legend
             get { return _mapLayout; }
             set
             {
-                _mapLayout = value; ;
+                _mapLayout = value;;
                 _mapLayout.UpdateMapFrames(_mapFrames);
                 _mapLayout.ActiveMapFrameChanged += new EventHandler(Layout_ActiveMapFrameChanged);
                 _mapLayout.MapFramesUpdated += new EventHandler(Layout_MapFramesUpdated);
@@ -231,7 +231,7 @@ namespace MeteoInfoC.Legend
         public bool IsLayoutView
         {
             get { return _isLayoutView; }
-            set
+            set 
             {
                 _isLayoutView = value;
                 if (_isLayoutView)
@@ -311,7 +311,7 @@ namespace MeteoInfoC.Legend
         /// <param name="mf">map frame</param>
         public void AddMapFrame(MapFrame mf)
         {
-            mf.LayersUpdated += MapFrameLayerUpdated;
+            mf.LayersUpdated += MapFrameLayerUpdated;            
             _mapFrames.Add(mf);
             OnMapFramesUpdated();
         }
@@ -467,7 +467,7 @@ namespace MeteoInfoC.Legend
 
         private void DrawMapFrames(Graphics g)
         {
-            int TotalHeight = CalcTotalDrawHeight();
+            int TotalHeight = CalcTotalDrawHeight();            
             Rectangle rect;
             if (TotalHeight > this.Height)
             {
@@ -518,7 +518,7 @@ namespace MeteoInfoC.Legend
         //    //this is important because the click events use the stored top as
         //    //the way of figuring out if the item was clicked
         //    //and if the checkbox or expansion box was clicked
-
+         
         //    int CurTop = 0;
 
         //    if (_vScrollBar.Visible == true)
@@ -590,14 +590,14 @@ namespace MeteoInfoC.Legend
 
         private ItemNode GetNodeByPosition(int x, int y, ref bool inCheckBox, ref bool inExpansionBox)
         {
-            int curTop = 0;
+            int curTop = 0;            
             bool inItem = false;
             ItemNode aIN = GetNodeByPosition(x, y, ref inItem, ref curTop);
             if (aIN != null)
-            {
+            {                
                 int leftPad = Constants.MAPFRAME_LEFT_PAD;
                 if (aIN.GetType() == typeof(MapFrame))
-                {
+                {                    
                     if (x > leftPad && x < leftPad + Constants.EXPAND_BOX_SIZE)
                         inExpansionBox = true;
                     else
@@ -643,7 +643,7 @@ namespace MeteoInfoC.Legend
                         else
                             inCheckBox = false;
                     }
-                }
+                }               
             }
 
             return aIN;
@@ -663,8 +663,8 @@ namespace MeteoInfoC.Legend
             SolidBrush aBrush = new SolidBrush(ForeColor);
             if (aMapFrame.Nodes.Count > 0)
                 DrawExpansionBox(g, new Point(sP.X, sP.Y + Constants.EXPAND_BOX_TOP_PAD), aMapFrame.IsExpanded);
-
-            Icon icon = new Icon(this.GetType().Assembly.GetManifestResourceStream("MeteoInfoC.Resources.Layers.ico"));
+            
+            Icon icon = new Icon(this.GetType().Assembly.GetManifestResourceStream("MeteoInfoC.Resources.Layers.ico"));            
             if (icon != null)
                 g.DrawIcon(icon, sP.X + Constants.EXPAND_BOX_SIZE + Constants.CHECK_LEFT_PAD, sP.Y);
 
@@ -721,14 +721,14 @@ namespace MeteoInfoC.Legend
 
             SolidBrush aBrush = new SolidBrush(ForeColor);
             if (groupNode.Layers.Count > 0)
-                DrawExpansionBox(g, new Point(sP.X, sP.Y + Constants.EXPAND_BOX_TOP_PAD), groupNode.IsExpanded);
+                DrawExpansionBox(g, new Point(sP.X, sP.Y + Constants.EXPAND_BOX_TOP_PAD), groupNode.IsExpanded);           
 
             groupNode.UpdateCheckStatus();
-            DrawCheckBox(g, new Point(sP.X + Constants.EXPAND_BOX_SIZE + Constants.CHECK_LEFT_PAD,
+            DrawCheckBox(g, new Point(sP.X + Constants.EXPAND_BOX_SIZE + Constants.CHECK_LEFT_PAD, 
                 sP.Y + Constants.CHECK_TOP_PAD), groupNode.CheckStatus);
             //Font newFont = new Font(this.Font, FontStyle.Bold);
             g.DrawString(groupNode.Text, Font, aBrush, sP.X + Constants.EXPAND_BOX_SIZE + Constants.CHECK_LEFT_PAD +
-                Constants.CHECK_BOX_SIZE + Constants.TEXT_LEFT_PAD, sP.Y);
+                Constants.CHECK_BOX_SIZE + Constants.TEXT_LEFT_PAD, sP.Y);            
 
             //Draw layer nodes
             if (groupNode.IsExpanded)
@@ -762,7 +762,7 @@ namespace MeteoInfoC.Legend
             if (layerNode.Checked)
                 checkStatus = 1;
 
-            DrawCheckBox(g, new Point(sP.X + Constants.EXPAND_BOX_SIZE + Constants.CHECK_LEFT_PAD,
+            DrawCheckBox (g,new Point (sP.X + Constants.EXPAND_BOX_SIZE + Constants.CHECK_LEFT_PAD,
                 sP.Y + Constants.CHECK_TOP_PAD), checkStatus);
             g.DrawString(layerNode.Text, Font, aBrush, sP.X + Constants.EXPAND_BOX_SIZE + Constants.CHECK_LEFT_PAD +
                 Constants.CHECK_BOX_SIZE + Constants.TEXT_LEFT_PAD, sP.Y);
@@ -772,7 +772,7 @@ namespace MeteoInfoC.Legend
             {
                 sP.X += Constants.ITEM_LEFT_PAD;
                 //sP.X += Constants.EXPAND_BOX_SIZE + Constants.CHECK_LEFT_PAD + Constants.CHECK_BOX_SIZE;
-                sP.Y = sP.Y + layerNode.Height + Constants.ITEM_PAD;
+                sP.Y = sP.Y + layerNode.Height + Constants.ITEM_PAD;                                
                 foreach (LegendNode aLN in layerNode.LegendNodes)
                 {
                     Rectangle rect = new Rectangle(sP.X, sP.Y, 40, aLN.Height);
@@ -780,7 +780,7 @@ namespace MeteoInfoC.Legend
                     sP.Y = sP.Y + aLN.Height + Constants.ITEM_PAD;
                 }
             }
-        }
+        }        
 
         private void DrawLegendNode(LegendNode aLN, Rectangle rect, Graphics g)
         {
@@ -856,7 +856,7 @@ namespace MeteoInfoC.Legend
                         case ChartTypes.BarChart:
                             Draw.DrawBarChartSymbol(aP, aChB, g, true, this.Font);
                             break;
-                        case ChartTypes.PieChart:
+                        case ChartTypes .PieChart:
                             Draw.DrawPieChartSymbol(aP, aChB, g);
                             break;
                     }
@@ -950,21 +950,21 @@ namespace MeteoInfoC.Legend
             int gap = 2;
             Rectangle rect = new Rectangle(sP, new Size(size, size));
             g.DrawRectangle(new Pen(Color.Gray), rect);
-
+            
             GraphicsPath path = new GraphicsPath();
             path.AddLine(sP.X + gap, sP.Y + size / 2, sP.X + size - gap, sP.Y + size / 2);
             if (!expanded)
             {
                 path.StartFigure();
-                path.AddLine(sP.X + size / 2, sP.Y + gap, sP.X + size / 2, sP.Y + size - gap);
+                path.AddLine(sP.X + size / 2, sP.Y + gap, sP.X + size / 2, sP.Y + size - gap);                
             }
-
+            
             g.DrawPath(new Pen(Color.Black), path);
         }
 
         private void DrawCheckBox(Graphics g, Point sP, int checkStatus)
         {
-            int size = 10;
+            int size = 10;            
             Rectangle rect = new Rectangle(sP, new Size(size, size));
             g.DrawRectangle(new Pen(Color.Gray), rect);
 
@@ -981,7 +981,7 @@ namespace MeteoInfoC.Legend
                     g.DrawPath(new Pen(Color.Black), path);
                     break;
             }
-        }
+        }        
 
         /// <summary>
         /// Drag enter event
@@ -1074,7 +1074,7 @@ namespace MeteoInfoC.Legend
                     break;
                 case NodeTypes.LayerNode:
                     mf = ((LayerNode)aNode).MapFrame;
-                    break;
+                    break; 
                 case NodeTypes.GroupNode:
                     mf = ((GroupNode)aNode).MapFrame;
                     break;
@@ -1229,7 +1229,7 @@ namespace MeteoInfoC.Legend
         protected override void OnMouseDown(MouseEventArgs e)
         {
             base.OnMouseDown(e);
-
+            
             _mouseDownPos.X = e.X;
             _mouseDownPos.Y = e.Y;
 
@@ -1260,7 +1260,7 @@ namespace MeteoInfoC.Legend
                         {
                             if (((LayerNode)aNode).GroupHandle != -1)
                                 return;
-                        }
+                        }                        
 
                         //Draw drag line                        
                         Pen aPen = new Pen(Color.Gray);
@@ -1271,7 +1271,7 @@ namespace MeteoInfoC.Legend
                             y = curTop + aNode.GetDrawHeight();
 
                         g.DrawLine(new Pen(Color.Black), Constants.ITEM_LEFT_PAD, y,
-                            this.ClientRectangle.Width - Constants.ITEM_RIGHT_PAD, y);
+                            this.ClientRectangle.Width - Constants.ITEM_RIGHT_PAD, y);                        
                     }
                 }
             }
@@ -1408,7 +1408,7 @@ namespace MeteoInfoC.Legend
                             }
                         }
 
-                        Redraw();
+                        Redraw();                        
                     }
                 }
             }
@@ -1452,7 +1452,7 @@ namespace MeteoInfoC.Legend
             LayerNode aLN = (LayerNode)_selectedNode;
             MapLayer aLayer = aLN.MapFrame.MapView.GetLayerFromHandle(aLN.LayerHandle);
             aLayer.VisibleScale.EnableMinVisScale = false;
-            aLayer.VisibleScale.EnableMaxVisScale = false;
+            aLayer.VisibleScale.EnableMaxVisScale = false;            
 
             this.Invalidate();
             aLN.MapFrame.MapView.PaintLayers();
@@ -1517,7 +1517,7 @@ namespace MeteoInfoC.Legend
             if (_selectedNode.NodeType == NodeTypes.GroupNode)
             {
                 GroupNode aGN = (GroupNode)_selectedNode;
-                aGN.MapFrame.RemoveGroup(aGN);
+                aGN.MapFrame.RemoveGroup(aGN); 
             }
             //GroupNode aGN = GetGroupByHandle(_SelectedGroup);
             //RemoveGroup(aGN);
@@ -1647,8 +1647,8 @@ namespace MeteoInfoC.Legend
                     if (aNode.IsExpanded)
                         aNode.Collapse();
                     else
-                        aNode.Expand();
-
+                        aNode.Expand();                    
+                    
                     this.Invalidate();
                 }
             }
@@ -1666,8 +1666,8 @@ namespace MeteoInfoC.Legend
                         default:
                             aNode.CheckStatus = 0;
                             aNode.Checked = false;
-                            break;
-                    }
+                            break; 
+                    }                    
 
                     foreach (LayerNode aLN in aNode.Layers)
                     {
@@ -1738,7 +1738,7 @@ namespace MeteoInfoC.Legend
             {
                 if (e.Button == MouseButtons.Left)
                 {
-                    aNode.Checked = !aNode.Checked;
+                    aNode.Checked = !aNode.Checked;                    
                     aLayerObj.Visible = aNode.Checked;
                     this.Invalidate();
 
@@ -1750,13 +1750,13 @@ namespace MeteoInfoC.Legend
             else
             {
                 //SelectLayer(aNode as LayerNode);
-
+             
                 if (e.Button == MouseButtons.Right)
                 {
                     ContextMenuStrip mnuLayer = new ContextMenuStrip();
                     Stream myStream;
                     Bitmap image;
-
+                 
                     //Remove and save layer
                     mnuLayer.Items.Add("Remove Layer");
                     mnuLayer.Items[mnuLayer.Items.Count - 1].Click += new EventHandler(OnRemoveLayerClick);
@@ -1786,7 +1786,7 @@ namespace MeteoInfoC.Legend
                         mnuLayer.Items.Add(attrTableMenu);
 
                         mnuLayer.Items.Add(new ToolStripSeparator());
-                    }
+                    }                    
 
                     //Zoom to layer
                     ToolStripMenuItem zoomLayerMenu = new ToolStripMenuItem("Zoom to Layer");
@@ -1986,6 +1986,6 @@ namespace MeteoInfoC.Legend
         public static int CS_TEXT_LEFT_INDENT = (CS_PATCH_LEFT_INDENT + CS_PATCH_WIDTH + 3);
         public static int CS_TEXT_TOP_PAD = 3;
         //	SCROLLBAR
-        public static int SCROLL_WIDTH = 15;
+        public static int SCROLL_WIDTH = 15;        
     }
 }
