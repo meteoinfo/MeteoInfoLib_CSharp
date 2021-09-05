@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "dgSpecHash": "h4JgA9vj5T/zgyv8TGIz/CQsOZy1RR1b/nF5r29U8Np4jNvae/EbeIZLhwI63GdiFnM6O0w3xlf0IhgTsvDRSg==",
+  "success": true,
+  "projectFilePath": "E:\\GitHub\\MeteoInfoC\\MeteoInfoDLL\\MeteoInfoDLL.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\rongf\\.nuget\\packages\\hdf5dotnet.x86\\1.8.9\\hdf5dotnet.x86.1.8.9.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'HDF5DotNet.x86 1.8.9' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0-windows7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "HDF5DotNet.x86",
+      "targetGraphs": [
+        "net5.0-windows7.0"
+      ]
+    }
+  ]
+}

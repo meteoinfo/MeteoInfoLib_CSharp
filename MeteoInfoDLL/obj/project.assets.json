@@ -1,0 +1,126 @@
+{
+  "version": 3,
+  "targets": {
+    "net5.0-windows7.0": {
+      "HDF5DotNet.x86/1.8.9": {
+        "type": "package",
+        "compile": {
+          "lib/net40/HDF5DotNet.dll": {}
+        },
+        "runtime": {
+          "lib/net40/HDF5DotNet.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "HDF5DotNet.x86/1.8.9": {
+      "sha512": "m6uq2SL1z5Bjo1AKonNeA8lZwxJ0a5f1K71hyEFXq2tErJi2AwvrQqJu1OKluulQxkHyTcApng6S39HLYy8XFA==",
+      "type": "package",
+      "path": "hdf5dotnet.x86/1.8.9",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "NativeBinaries/hdf5_hldll.dll",
+        "NativeBinaries/hdf5dll.dll",
+        "NativeBinaries/szip.dll",
+        "NativeBinaries/zlib.dll",
+        "hdf5dotnet.x86.1.8.9.nupkg.sha512",
+        "hdf5dotnet.x86.nuspec",
+        "lib/net40/HDF5DotNet.dll",
+        "tools/GetHDF5DotNetPostBuildCmd.ps1",
+        "tools/init.ps1",
+        "tools/install.ps1",
+        "tools/uninstall.ps1"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net5.0-windows7.0": [
+      "HDF5DotNet.x86 >= 1.8.9"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\rongf\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "E:\\GitHub\\MeteoInfoC\\MeteoInfoDLL\\MeteoInfoDLL.csproj",
+      "projectName": "MeteoInfoDLL",
+      "projectPath": "E:\\GitHub\\MeteoInfoC\\MeteoInfoDLL\\MeteoInfoDLL.csproj",
+      "packagesPath": "C:\\Users\\rongf\\.nuget\\packages\\",
+      "outputPath": "E:\\GitHub\\MeteoInfoC\\MeteoInfoDLL\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\rongf\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net5.0-windows7.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net5.0-windows7.0": {
+          "targetAlias": "net5.0-windows",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net5.0-windows7.0": {
+        "targetAlias": "net5.0-windows",
+        "dependencies": {
+          "HDF5DotNet.x86": {
+            "target": "Package",
+            "version": "[1.8.9, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          },
+          "Microsoft.WindowsDesktop.App.WindowsForms": {
+            "privateAssets": "none"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100-preview.7.21379.14\\RuntimeIdentifierGraph.json"
+      }
+    }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'HDF5DotNet.x86 1.8.9' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0-windows7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "HDF5DotNet.x86",
+      "targetGraphs": [
+        "net5.0-windows7.0"
+      ]
+    }
+  ]
+}

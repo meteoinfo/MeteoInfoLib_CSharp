@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <Compile Update="Data\MapData\Field.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Data\MapData\frmAddField.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Data\MapData\frmAttriData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Data\MapData\frmInputBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Global\Colors\ctrl2DColorBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Global\Colors\ctrlVerticalColorSlider.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Global\Colors\frmColorPicker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Global\frmMeasurement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Global\frmProperty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Global\ToolStripSplitButtonCheckable.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Layer\frmLabelSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Layer\frmLayerProperty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Layout\frmPageSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Layout\MapLayout.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Legend\frmColorSymbolSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Legend\frmLabelSymbolSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Legend\frmLegendBreaks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Legend\frmLegendSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Legend\frmPointSymbolSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Legend\frmPolygonSymbolSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Legend\frmPolylineSymbolSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Legend\LayersLegend.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Legend\LegendSchemeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Legend\LegendView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Legend\ScrollingControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Legend\SymbolControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Map\frmIdentifer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Map\frmIdentiferGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Map\MapView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="MIApp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>
